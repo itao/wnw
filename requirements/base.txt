@@ -1,0 +1,17 @@
+Django==1.6.1
+
+pytz==2013.9
+python-dateutil==2.2
+
+django-model-utils==2.0.0
+django-admin-honeypot==0.2.5
+
+South==0.8.4
+psycopg2==2.5.2
+
+raven==4.0.3
+
+ipython==1.1.0
+
+gunicorn==18.0
+setproctitle==1.1.8
