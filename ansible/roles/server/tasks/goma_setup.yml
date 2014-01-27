@@ -1,0 +1,19 @@
+- name: Change goma shell to zsh
+  sudo: yes
+  command: chsh --shell /bin/zsh goma
+- name: Install oh-my-zsh
+  command: git clone 'https://github.com/robbyrussell/oh-my-zsh.git' /home/goma/.oh-my-zsh
+    creates=/home/goma/.oh-my-zsh
+  sudo: yes
+  sudo_user: goma
+- name: Create goma zshrc
+  copy: src=zshrc dest=/home/goma/.zshrc owner=goma group=goma
+- name: Create goma directories
+  file: path={{item}} owner=goma group=goma mode=700 state=directory
+  with_items:
+    - /goma
+    - /goma/log
+    - /goma/run
+    - /goma/venv
+    - /goma/tmp
+    - /goma/secret

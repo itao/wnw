@@ -1,0 +1,2 @@
+- name: Install ansible postgres dependencies
+  apt: pkg=python-psycopg2 state=present

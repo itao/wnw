@@ -1,0 +1,10 @@
+- name: Fix any apt repositories
+  apt: update_cache=yes cache_valid_time=604800
+- name: Ansible apt prereqs
+  apt: pkg={{item}} state=present
+  with_items:
+    - aptitude
+    - python-apt
+    - python-pycurl
+- include: devops_setup.yml
+- include: goma_setup.yml

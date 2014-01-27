@@ -1,0 +1,14 @@
+- name: Install psycopg2 dependencies
+  apt: pkg=libpq-dev state=present
+- name: Install xml dependencies
+  apt: pkg={{item}} state=present
+  with_items:
+    - libxml2-dev
+    - libxslt1-dev
+- name: Install pillow image processing dependencies
+  apt: pkg={{item}} state=present
+  with_items:
+    - libjpeg-dev
+    - libpng12-dev
+    - libfreetype6-dev
+    - zlib1g-dev

@@ -1,0 +1,3 @@
+- include: postgres_install.yml
+- include: ansible_postgres_dependencies.yml
+- include: postgres_setup.yml

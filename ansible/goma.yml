@@ -1,0 +1,5 @@
+- hosts: goma
+  sudo: yes
+  gather_facts: false
+  roles:
+    - {role: db, db_name: gomadb, db_user: goma, db_password: password}

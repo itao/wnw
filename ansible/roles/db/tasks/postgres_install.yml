@@ -1,0 +1,8 @@
+- name: Add the postgres apt key
+  apt_key: id=ACCC4CF8
+    url='https://www.postgresql.org/media/keys/ACCC4CF8.asc' state=present
+- name: Add the postgres repo
+  apt_repository: state=present
+    repo='deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main'
+- name: Install postgres 9.3
+  apt: pkg=postgresql-9.3 state=present

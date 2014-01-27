@@ -1,0 +1,10 @@
+- name: Clone goma from github
+  git: dest=/goma/deploy repo=git@github.com:gomaio/goma.git
+  when: deployed and not fake
+  sudo: yes
+  sudo_user: goma
+- name: Symlink /goma/deploy -> /vagrant
+  file: src=/vagrant dest=/goma/deploy owner=goma group=goma state=link
+  when: not deployed or fake
+  sudo: yes
+  sudo_user: goma

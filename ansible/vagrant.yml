@@ -1,0 +1,8 @@
+- include: goma.yml
+
+- hosts: goma
+  tasks:
+    - name: Create pgpass
+      copy: dest=/home/goma/.pgpass owner=goma group=goma mode=600
+        content='*:*:*:goma:'
+      sudo: yes

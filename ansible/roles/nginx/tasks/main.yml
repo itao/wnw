@@ -1,0 +1,14 @@
+- name: Add nginx ppa
+  apt_repository: repo='ppa:nginx/stable' state=present
+- name: Install nginx
+  apt: pkg=nginx state=present
+
+- name: Ensure nginx is running
+  service: name=nginx state=started
+
+- name: Setup nginx config
+  copy: src=nginx.conf dest=/etc/nginx/nginx.conf owner=root group=root mode=0644
+  notify: reload nginx
+- name: Remove nginx default site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  notify: reload nginx

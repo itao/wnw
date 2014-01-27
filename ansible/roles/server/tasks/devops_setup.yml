@@ -1,0 +1,15 @@
+- name: Install Devops Packages
+  apt: pkg={{item}} state=present
+  with_items:
+    - vim-nox
+    - htop
+    - git-core
+    - iftop
+    - dstat
+    - curl
+    - tree
+    - ack-grep
+    - zsh
+    - autojump
+- name: Symlink ack-grep to ack
+  file: src=/usr/bin/ack-grep dest=/usr/bin/ack state=link

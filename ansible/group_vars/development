@@ -1,0 +1,4 @@
+# vim: set ft=yaml:
+
+deployed: false
+fake: true

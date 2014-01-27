@@ -1,0 +1,9 @@
+- name: Allow developers to ssh into goma
+  authorized_key: user=goma state=present
+    key="{{ lookup('file', item) }}"
+  with_items:
+    - ssh_keys/chris
+    - ssh_keys/ian
+    - ssh_keys/hanjun
+    - ssh_keys/yunyi
+    - ssh_keys/yunyi_imac
