@@ -2,13 +2,12 @@ import os.path as path
 
 BASE_DIR = path.dirname(path.dirname(path.dirname((__file__))))
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '4gzx8fyhzsv(eqlnn@*9epm2*qyr96_q+f5-fnt*-as$ol38cu'
 
 ALLOWED_HOSTS = []
 
-# Application definition
 
+APPEND_SLASH = False
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,7 +48,7 @@ STATICFILES_DIRS = (
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgres_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'gomadb',
         'USER': 'goma',
     }
