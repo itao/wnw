@@ -1,0 +1,18 @@
+# vim: set ft=python:
+import multiprocessing
+
+import os
+
+proc_name = '{{gunicorn_prefix}}_gunicorn'
+bind = '127.0.0.1:{{port}}'
+workers = multiprocessing.cpu_count()
+daemon = False
+
+accesslog = os.path.join('/goma', 'log', '{{domain}}-gunicorn.access.log')
+errorlog = os.path.join('/goma', 'log', '{{domain}}-gunicorn.error.log')
+pythonpath = os.path.join('/goma', 'deploy', 'web')
+
+# for Raven setup to send to Sentry
+def when_ready(server):
+    from django.core.management import call_command
+    call_command('validate')

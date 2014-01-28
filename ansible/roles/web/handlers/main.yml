@@ -1,0 +1,4 @@
+- name: reload app_gunicorn
+  service: name=app_gunicorn state=reloaded
+- name: reload shortener_gunicorn
+  service: name=shortener_gunicorn state=reloaded

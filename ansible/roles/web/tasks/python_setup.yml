@@ -1,0 +1,10 @@
+- name: Install python packages via apt
+  apt: pkg={{item}} state=present
+  with_items:
+    - python
+    - python-pip
+- name: Install pip and virtualenv through pip
+  pip: name={{item}} state=present
+  with_items:
+    - pip
+    - virtualenv

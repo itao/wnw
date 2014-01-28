@@ -1,0 +1,19 @@
+# vim: set ft=upstart:
+
+description "{{gunicorn_prefix}} gunicorn"
+
+start on (filesystem and net-device-up)
+stop on runlevel [!345]
+
+respawn
+console log
+setuid goma
+setgid goma
+chdir /goma/deploy/web
+
+script
+  export DJANGO_SETTINGS_MODULE=goma.settings.{{env}}
+  . /goma/secret/env
+  /goma/venv/goma/bin/gunicorn wsgi:application \
+    --config /etc/gunicorn/{{gunicorn_prefix}}_gunicorn_config.py
+end script

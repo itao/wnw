@@ -1,0 +1,12 @@
+- name: Install pygraphviz dependencies
+  apt: pkg={{item}} state=present
+  with_items:
+    - graphviz
+    - graphviz-dev
+    - pkg-config
+  when: env == 'development'
+- name: Install project pip dependencies
+  pip: requirements=/goma/deploy/requirements/{{env}}.txt
+    virtualenv=/goma/venv/goma
+  sudo: yes
+  sudo_user: goma

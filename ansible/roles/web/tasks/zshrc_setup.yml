@@ -1,0 +1,3 @@
+- name: Create goma web_zshrc
+  template: src=web_zshrc.j2 dest=/home/goma/.web_zshrc owner=goma
+    group=goma

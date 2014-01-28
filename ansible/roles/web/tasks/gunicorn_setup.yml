@@ -1,0 +1,16 @@
+- name: Create /etc/gunicorn
+  file: path=/etc/gunicorn owner=root group=root state=directory
+- name: Create /etc/gunicorn/{{gunicorn_prefix}}_gunicorn_config.py
+  template: dest=/etc/gunicorn/{{gunicorn_prefix}}_gunicorn_config.py
+    src=gunicorn_config.py.j2 owner=root group=root mode=644
+  notify: reload {{gunicorn_prefix}}_gunicorn
+- name: Create service entry for {{gunicorn_prefix}}
+  template: dest=/etc/init/{{gunicorn_prefix}}_gunicorn.conf
+    src=gunicorn.upstart.conf.j2 owner=root group=root mode=644
+  notify: reload {{gunicorn_prefix}}_gunicorn
+- name: Start up {{gunicorn_prefix}}_gunicorn
+  service: name={{gunicorn_prefix}}_gunicorn state=started
+  when: deployed
+- name: "Don't up {{gunicorn_prefix}}_gunicorn"
+  service: name={{gunicorn_prefix}}_gunicorn state=stopped
+  when: not deployed

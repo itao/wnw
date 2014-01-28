@@ -1,0 +1,4 @@
+dependencies:
+  - {role: server}
+  - {role: repo}
+  - {role: python_web}

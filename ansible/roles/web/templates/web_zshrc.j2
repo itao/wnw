@@ -1,0 +1,29 @@
+# vi: set ft=sh :
+
+ROOT="/goma"
+SECRET="$ROOT/secret"
+DEPLOY="$ROOT/deploy"
+VENV="$ROOT/venv/goma"
+
+alias spsql='psql -U goma gomadb'
+alias manage="$DEPLOY/web/manage.py"
+alias repo="cd $DEPLOY"
+alias web="cd $DEPLOY/web"
+alias shell="manage shell_plus"
+
+alias dev='export DJANGO_SETTINGS_MODULE=goma.settings.development'
+alias prod='export DJANGO_SETTINGS_MODULE=goma.settings.production'
+alias stage='export DJANGO_SETTINGS_MODULE=goma.settings.staging'
+alias whichenv='echo $DJANGO_SETTINGS_MODULE | cut -d . -f 3'
+
+alias appserver="web && ./manage.py runserver 0.0.0.0:8888"
+
+SECRET_ENV="$SECRET/env"
+if [ -f $SECRET_ENV ] ; then
+  . $SECRET_ENV
+else
+  echo "Error: missing secret $SECRETS_ENV"
+fi
+
+. $VENV/bin/activate
+export DJANGO_SETTINGS_MODULE=goma.settings.{{env}}

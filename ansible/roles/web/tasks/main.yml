@@ -1,0 +1,5 @@
+- include: zshrc_setup.yml
+- include: python_setup.yml
+- include: python_dependencies.yml
+- include: secrets.yml
+- include: gunicorn_setup.yml gunicorn_prefix=app domain=goma port=8888
