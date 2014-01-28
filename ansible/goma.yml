@@ -4,4 +4,4 @@
   roles:
     - {role: web}
     - {role: python_web}
-    - {role: db, db_name: gomadb, db_user: goma, db_password: password}
+    - {role: db, db_name: gomadb, db_user: goma, db_password: }
