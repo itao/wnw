@@ -46,6 +46,10 @@ STATICFILES_DIRS = (
     path.join(BASE_DIR, 'static'),
 )
 
+TEMPLATE_DIRS = (
+    path.join(BASE_DIR, 'templates'),
+)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
