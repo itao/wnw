@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView
 
 urlpatterns = patterns('pages.views',
@@ -7,4 +7,7 @@ urlpatterns = patterns('pages.views',
 
     # Console pages
     url(r'^$', TemplateView.as_view(template_name='pages/console/home.html'), name='home'),
+
+    # Student pages
+    url(r'^students/', include('students.urls')),
 )
