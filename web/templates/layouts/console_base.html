@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/console/compiled/layout.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/console/compiled/elements.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/console/compiled/icons.css' %}" />
+        {% block css_includes %}{% endblock %}
 
         <!-- this page specific styles -->
         <link rel="stylesheet" href="{% static 'css/console/compiled/index.css' %}" type="text/css" media="screen" />
@@ -32,9 +33,6 @@
         <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-
-        {% block includes %}
-        {% endblock %}
     </head>
     <body>
         <!-- navbar -->
@@ -101,7 +99,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{% url 'schedules_index' %}">
                         <i class="fa fa-calendar"></i>
                         <span>Schedule</span>
                     </a>
@@ -129,5 +127,6 @@
         <script src="{% static 'js/console/lib/bootstrap.min.js' %}"></script>
         <script src="{% static 'js/console/lib/jquery-ui-1.10.2.custom.min.js' %}"></script>
         <script src="{% static 'js/console/lib/theme.js' %}"></script>
+        {% block js_includes %}{% endblock %}
     </body>
 </html>

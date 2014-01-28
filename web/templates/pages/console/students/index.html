@@ -1,14 +1,18 @@
 {% extends 'layouts/console_base.html' %}
 {% load staticfiles %}
 
-{% block includes %}
+{% block title %}
+    Students
+{% endblock %}
+
+{% block css_includes %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/console/compiled/user-list.css' %}" />
 {% endblock %}
 
 {% block content %}
     <div id="pad-wrapper" class="users-list">
         <div class="row header">
-            <h3>Users</h3>
+            <h3>Students</h3>
             <div class="col-md-10 col-sm-12 col-xs-12 pull-right">
                 <input type="text" class="col-md-5 search" placeholder="Type a user's name...">
 
@@ -71,10 +75,10 @@
                                 <span class="line"></span>Last assessed
                             </th>
                             <th class="col-md-2 sortable">
-                                <span class="line"></span>Total spent
+                                <span class="line"></span>Email
                             </th>
                             <th class="col-md-3 sortable align-right">
-                                <span class="line"></span>Email
+                                <span class="line"></span>
                             </th>
                         </tr>
                     </thead>
@@ -83,17 +87,26 @@
                         <tr class="first">
                             <td>
                                 <img src="{% static 'img/console/contact-img.png' %}" alt="contact" class="img-circle avatar hidden-phone" />
-                                <a href="{% url 'students_portfolio' %}" class="name">Alejandra Galvan Castillo</a>
+                                <a href="{% url 'students_portfolio' %}" class="name">Alejandra Galvan Castillo </a>
                                 <span class="subtext">20300298</span>
                             </td>
                             <td>
                                 3 days ago
                             </td>
                             <td>
-                                $ 4,500.00
-                            </td>
-                            <td class="align-right">
                                 <a href="#">alejandra@canvas.com</a>
+                            </td>
+                            <td class="pull-right">
+                                <div class="btn-group hidden-xs hidden-sm">
+                                    <button class="btn glow">Edit</button>
+                                    <button class="btn glow dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Switch class</a></li>
+                                        <li><a href="#">Delete</a></li>
+                                    </ul>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
