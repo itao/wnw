@@ -5,7 +5,6 @@ from django.utils.translation import ugettext_lazy as _
 from goma.model_mixins import TimestampedMixin
 
 class UserManager(authm.BaseUserManager):
-
     def create_user(self, email, password=None):
         u = self.model(
             email=self.normalize_email(email),
@@ -34,5 +33,7 @@ class User(authm.AbstractBaseUser, authm.PermissionsMixin, TimestampedMixin):
     is_active = m.BooleanField(_('active'), default=True,
         help_text=_('Designates whether this user should be treated as '
             'active. Unselect this instead of deleting accounts.'))
+    first_name = m.CharField(max_length=1024)
+    last_name = m.CharField(max_length=1024)
 
     objects = UserManager()
