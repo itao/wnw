@@ -7,3 +7,5 @@
 /build
 /.vagrant
 tags
+
+*.gpg
