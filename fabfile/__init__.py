@@ -1,4 +1,4 @@
-from fabric.api import env, task, execute, local, run, roles
+from fabric.api import env, task, execute
 
 import web
 import db
@@ -36,7 +36,6 @@ def deploy(branch=None):
         raise ValueError('You must define an environemnt using e:<env>')
 
     execute(web.update, branch)
-    execute(web.install, branch)
 
     execute(web.stop)
 

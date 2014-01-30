@@ -9,7 +9,7 @@ from common import path
 def update(branch=None):
     # deployed repo is just a symlink to dev so do nothing
     if env.environment == "development":
-        run("echo 'Skipping repo update because env=development'")
+        print 'Skipping repo update because env=development'
         return
 
     deploy_lock = path('home', 'run', 'deploy-lock.txt')

@@ -1,12 +1,11 @@
-HOME_ROOT = '/goma'
-REPO_ROOT = '/goma/deploy'
+ROOT = '/goma'
 
 PATHS = {
-    'repo': REPO_ROOT,
-    'root': HOME_ROOT,
-    'web': '{}/web'.format(REPO_ROOT),
-    'secret': '{}/secret'.format(REPO_ROOT),
-    'venv': '{}/venv'.format(REPO_ROOT),
+    'root': ROOT,
+    'repo': '{}/deploy'.format(ROOT),
+    'web': '{}/deploy/web'.format(ROOT),
+    'secret': '{}/secret'.format(ROOT),
+    'venv': '{}/venv'.format(ROOT),
 }
 
 def path(root, *parts):

@@ -3,7 +3,6 @@
 - name: Make goma a sudoer
   copy: src=90_goma dest=/etc/sudoers.d/90_goma owner=root group=root mode=440
 - include: authorized_keys.yml
-  when: deployed
 - name: Include known hosts
   copy: src=ssh_known_hosts dest=/home/goma/.ssh/known_hosts owner=goma
     group=goma mode=600
