@@ -10,7 +10,6 @@ Like sesame, but more hip and artsy (Japanese names and the like).
 4. Install [pip](http://www.pip-installer.org/en/latest/installing.html)
 
 ### Setup the devbox VM using Vagrant
-Note: we add a reload because puppet sucks and I don't know why it doesn't work.
 ```sh
 # Outside of VM
 mkdir -p ~/.ssh/sockets
