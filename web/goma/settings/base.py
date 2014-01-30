@@ -17,6 +17,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'django_bcrypt',
+    'south',
+
     'accounts',
 )
 
