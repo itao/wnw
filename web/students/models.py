@@ -2,6 +2,7 @@ from django.db import models
 
 from accounts.models import User
 from klasses.models import Klass
+from schools.models import School
 
 class Student(models.Model):
     account = models.ForeignKey(User)

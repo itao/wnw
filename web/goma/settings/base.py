@@ -23,6 +23,7 @@ INSTALLED_APPS = (
     'teachers',
     'students',
     'klasses',
+    'schools',
 )
 
 MIDDLEWARE_CLASSES = (
