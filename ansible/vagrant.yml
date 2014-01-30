@@ -1,8 +1,12 @@
 - include: goma.yml
 
 - hosts: goma
+  sudo: yes
   tasks:
     - name: Create pgpass
       copy: dest=/home/goma/.pgpass owner=goma group=goma mode=600
         content='*:*:*:goma:'
+    - name: Allow goma to create and drop dbs
+      postgresql_user: user=goma role_attr_flags=CREATEDB state=present
       sudo: yes
+      sudo_user: postgres
