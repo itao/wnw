@@ -25,6 +25,8 @@ INSTALLED_APPS = (
     'klasses',
     'schools',
     'parents',
+
+    'notes',
 )
 
 MIDDLEWARE_CLASSES = (
