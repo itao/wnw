@@ -7,6 +7,8 @@ urlpatterns = patterns('pages.views',
 
     # Console pages
     url(r'^$', TemplateView.as_view(template_name='pages/console/home.html'), name='home'),
+    url(r'^accounts/', include('accounts.urls')),
+    url(r'^teachers/', include('teachers.urls')),
     url(r'^students/', include('students.urls')),
     url(r'^schedules/', include('schedules.urls')),
 )

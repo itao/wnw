@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	<title>Detail Admin - Home</title>
+    	<title>{% block title %}{% endblock %} | Sesame IO</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -105,9 +105,9 @@
                     </a>
                 </li>
                <li>
-                    <a href="personal-info.html">
-                        <i class="fa fa-cog"></i>
-                        <span>My Info</span>
+                    <a href="{% url 'accounts_index' %}">
+                        <i class="fa fa-user"></i>
+                        <span>Account</span>
                     </a>
                 </li>
             </ul>

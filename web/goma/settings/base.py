@@ -20,6 +20,13 @@ INSTALLED_APPS = (
     'south',
 
     'accounts',
+    'teachers',
+    'students',
+    'klasses',
+    'schools',
+    'parents',
+
+    'notes',
 )
 
 MIDDLEWARE_CLASSES = (
