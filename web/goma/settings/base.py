@@ -53,10 +53,16 @@ USE_L10N = True
 
 USE_TZ = True
 
+MEDIA_URL = '/media/'
+
 STATIC_ROOT = path.join(BASE_DIR, 'public', 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     path.join(BASE_DIR, 'static'),
+)
+PIPELINE_COMPILERS = (
+    'pipeline.compilers.sass.SASSCompiler',
+    'react.utils.pipeline.JSXCompiler',
 )
 
 TEMPLATE_DIRS = (
