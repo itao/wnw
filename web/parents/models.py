@@ -5,7 +5,7 @@ from students.models import Student
 
 class Parent(models.Model):
     account = models.ForeignKey(User)
-    picture = models.ImageField(null=True, blank=True, upload_to="attachments/parents/pictures/")
+    picture = models.ImageField(null=True, blank=True, upload_to="parents/pictures")
     children = models.ManyToManyField(Student, blank=True, null=True)
 
     def name(self):
