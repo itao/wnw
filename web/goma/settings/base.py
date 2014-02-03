@@ -18,6 +18,7 @@ INSTALLED_APPS = (
 
     'django_bcrypt',
     'south',
+    'rest_framework',
 
     'accounts',
     'teachers',
@@ -75,3 +76,12 @@ AUTH_USER_MODEL = 'accounts.User'
 PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_MODEL_SERIALIZER_CLASS':
+        'rest_framework.serializers.HyperlinkedModelSerializer',
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
