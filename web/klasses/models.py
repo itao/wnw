@@ -6,7 +6,7 @@ class Klass(models.Model):
     teacher = models.ForeignKey(Teacher, related_name="classes")
     coteachers = models.ManyToManyField(Teacher, blank=True, null=True, related_name="coclasses")
     title = models.CharField(max_length=200)
-    code = models.CharField(max_length=40, default='')
+    code = models.CharField(max_length=40, blank=True, default='')
     start = models.DateField(verbose_name='Start Date')
     end = models.DateField(verbose_name='End Date')
     colour = models.CharField(max_length=7, default='#999999')
