@@ -12,4 +12,5 @@ urlpatterns = patterns('pages.views',
     url(r'^teachers/', include('teachers.urls')),
     url(r'^students/', include('students.urls')),
     url(r'^schedules/', include('schedules.urls')),
+    url(r'^supers/', include('supers.urls')),
 )

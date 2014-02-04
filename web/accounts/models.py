@@ -45,6 +45,9 @@ class User(authm.AbstractBaseUser, authm.PermissionsMixin, TimestampedMixin):
     def __unicode__(self):
         return u'<User: {}>'.format(self.email)
 
+    def get_email(self):
+        return self.email
+
     @property
     def is_staff(self):
         return self.is_superuser and self.is_active
