@@ -1,0 +1,44 @@
+<div id="panel2" class="panel panel-default magic-element width-full">
+    <div class="panel-heading">
+        <div class="panel-icon"><i class="icon ion-ios7-photos-outline"></i></div>
+        <div class="panel-actions">
+            <a role="button" data-refresh="#panel2" title="refresh" class="btn btn-sm btn-icon">
+                <i class="icon ion-refresh"></i>
+            </a>
+            <a role="button" data-expand="#panel2" title="expand" class="btn btn-sm btn-icon">
+                <i class="icon ion-arrow-resize"></i>
+            </a>
+            <a role="button" data-collapse="#panel2" title="collapse" class="btn btn-sm btn-icon">
+                <i class="icon ion-chevron-down"></i>
+            </a>
+            <a role="button" data-close="#panel2" title="close" class="btn btn-sm btn-icon">
+                <i class="icon ion-close-round"></i>
+            </a>
+        </div><!-- /panel-actions -->
+        <h3 class="panel-title">No Padding</h3>
+    </div><!-- /panel-heading -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>email</th>
+                <th>Associated teachers</th>
+                <th>Lessons</th>
+            </tr>
+        </thead>
+        <tbody>
+        	{% for student in students %}
+	            <tr>
+	                <td>1</td>
+	                <td>{{ student.account.first_name }}</td>
+	                <td>{{ student.account.last_name }}</td>
+	                <td>{{ student.account.email }}</td>
+	                <td>null</td>
+	                <td>null</td>
+	            </tr>
+            {% endfor %}
+        </tbody>
+    </table><!-- /table-striped -->
+</div><!-- /panel2 -->
