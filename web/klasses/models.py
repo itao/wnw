@@ -15,4 +15,4 @@ class Klass(models.Model):
         return self.title
 
     def num_students(self):
-        return self.student_set.count()
+        return self.students.count()
