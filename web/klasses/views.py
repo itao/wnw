@@ -17,7 +17,7 @@ def add(request):
 
     return HttpResponse(
         json.dumps({
-            'title': 'Add class',
+            'title': 'Create class',
             'header': header,
             'body': body,
         }),
