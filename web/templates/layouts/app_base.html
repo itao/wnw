@@ -84,7 +84,7 @@
                                         </a>
                                     </li><!-- /header layouts child -->
                                     <li class="side-nav-item">
-                                        <a href="#" data-url="{% url 'students_index' %}" onclick="loadInnerContent(this)">
+                                        <a href="#" data-url="{% url 'students_index' %}" onclick="updateAppBody(this)">
                                             <span class="badge">{{ class.num_students }}</span>
                                             <i class="nav-item-icon icon ion-android-friends"></i>
                                             Students
@@ -173,22 +173,12 @@
                 <div class="content-app fixed-header">
                     <!-- app header -->
                     <div id="app-header" class="app-header">
-                        <div class="pull-right">
-                            <a class="btn btn-default" role="button">Left</a>
-                            <a class="btn btn-default" role="button">Midle</a>
-                            <a class="btn btn-default" role="button">Right</a>
-                        </div>
-                        <ol class="breadcrumb bg-none pull-left hide-xs">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Library</a></li>
-                            <li class="active">Data</li>
-                        </ol>
-                        <!-- <h3 class="app-title">Drop App Modules</h3> -->
+                        {% block header %}{% endblock %}
                     </div><!-- /app header -->
 
                     <!-- app body -->
                     <div id="app-body" class="app-body">
-                        {% block content %}{% endblock %}
+                        {% block body %}{% endblock %}
                     </div><!-- app body -->
                 </div><!-- /content app -->
             </div><!-- /content spliter -->
@@ -212,12 +202,16 @@
     <script src="{% static 'stock/app/js/dependencies.js' %}"></script>
 
     <!-- other dependencies -->
+    <script src="{% static 'stock/bootbox/bootbox.js' %}"></script>
     <script src="{% static 'stock/jquery-icheck/jquery.icheck.min.js' %}"></script>
     <script src="{% static 'stock/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
     <script src="{% static 'stock/morris/morris.min.js' %}"></script>
     <script src="{% static 'stock/jquery-tags-input/jquery.tagsinput.min.js' %}"></script>
     <script src="{% static 'stock/select2/select2.min.js' %}"></script>
     <script src="{% static 'stock/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js' %}"></script>
+    <script src="{% static 'stock/jquery-steps/jquery.steps.min.js' %}"></script>
+    <script src="{% static 'stock/jquery.validation/jquery.validate.js' %}"></script>
+    <script src="{% static 'stock/jquery-simplecolorpicker/jquery.simplecolorpicker.js' %}"></script>
 
 
     <!-- theme app main.js -->

@@ -10,6 +10,7 @@ urlpatterns = patterns('pages.views',
     # Console pages
     url(r'^accounts/', include('accounts.urls')),
     url(r'^teachers/', include('teachers.urls')),
+    url(r'^classes/', include('klasses.urls')),
     url(r'^students/', include('students.urls')),
     url(r'^schedules/', include('schedules.urls')),
 )
