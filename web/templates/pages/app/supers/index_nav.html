@@ -1,0 +1,55 @@
+<nav id="side-nav" class="side-nav">
+    <!-- open nav ul -->
+    <ul>
+        <li class="side-nav-item active">
+            <a href="{% url 'index' %}">
+                <i class="nav-item-icon icon ion-home"></i>
+                Home
+            </a>
+        </li><!-- /Home-->
+
+        <!-- List classes -->
+
+        {% for class in classes %}
+            <li class="side-nav-item">
+                <a href="#class-{{ class.id }}">
+                    <i class="nav-item-caret"></i>
+                    {{ class.name }}
+                </a>
+                <ul id="class-{{ class.id }}" class="side-nav-child">
+                    <li class="side-nav-item-heading">
+                        <a href="#" class="side-nav-back">
+                            <i class="nav-item-caret"></i>
+                            {{ class.name }}
+                        </a>
+                    </li><!-- /header layouts child -->
+                    <li class="side-nav-item">
+                        <a href="#" data-url="{% url 'students_index' %}" onclick="updateAppBody(this)">
+                            <span class="badge">{{ class.num_students }}</span>
+                            <i class="nav-item-icon icon ion-android-friends"></i>
+                            Students
+                        </a>
+                    </li><!-- /blank -->
+                    <li class="side-nav-item">
+                        <a href="#">
+                            <i class="nav-item-icon icon ion-calendar"></i>
+                            Schedule
+                        </a>
+                    </li><!-- /variation -->
+                    <li class="side-nav-item">
+                        <a href="#">
+                            <i class="nav-item-icon icon ion-settings"></i>
+                            Settings
+                        </a>
+                    </li><!-- /variation -->
+                </ul><!-- /layouts child -->
+            </li><!-- /Class-1 -->
+        {% endfor %}
+        <li class="side-nav-item">
+            <a href="tables.html">
+                <i class="nav-item-icon icon ion-help-circled"></i>
+                Support
+            </a>
+        </li><!-- /tables -->
+    </ul><!-- /nav ul-->
+</nav>
