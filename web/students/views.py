@@ -10,8 +10,8 @@ def index(request):
         }
     )
 
-def portfolio(request):
-    template = 'pages/console/students/portfolio.html'
+def profile(request):
+    template = 'pages/app/students/profile.html'
 
     return render(
         request,

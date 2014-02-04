@@ -1,0 +1,237 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-width,height=device-height,target-densitydpi=device-dpi,user-scalable=yes" />
+    <title>{% block title %}Hello{% endblock %} | Sesame IO</title>
+
+    <!-- fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'stock/app/ico/apple-touch-icon-144-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'stock/app/ico/apple-touch-icon-114-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'stock/app/ico/apple-touch-icon-72-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'stock/app/ico/apple-touch-icon-57-precomposed.png' %}">
+    <link rel="shortcut icon" href="{% static 'stock/app/ico/favico.png' %}">
+    <link rel="shortcut icon" href="{% static 'stock/app/ico/favico.ico">
+
+    <!-- theme fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300italic,300,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- theme bootstrap stylesheets -->
+    <link href="{% static 'stock/bootstrap/css/bootstrap.css' %}" rel="stylesheet" />
+
+    <!-- theme dependencies stylesheets -->
+    <link href="{% static 'stock/app/css/dependencies.css' %}" rel="stylesheet" />
+
+    <!-- theme app main.css (this import of all custom css, you can use requirejs for optimizeCss or grunt to optimize them all) -->
+    <link href="{% static 'stock/app/css/syrena-admin.css' %}" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js' %}"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js' %}"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <!-- content wrapper to define fullpage or container -->
+    <!-- (recomended: dont change the id value) -->
+    <section id="wrapper" class="container">
+        <!-- define side left theme -->
+        <aside class="side-left">
+            <!-- side header -->
+            <div class="side-header">
+                <!-- place your brand (recomended: dont change the id value) -->
+                <!-- (recomended: dont change the id value) -->
+                <h1 id="brand" class="brand">
+                    <a href="index.html">
+                        <!-- <i class="icon ion-waterdrop"></i> -->
+                        <img src="{% static 'stock/app/img/brand.png' %}" alt="Brand">   <!-- 32px image logo -->
+                        Sesame IO
+                    </a>
+                </h1><!-- /brand -->
+            </div><!-- /side header -->
+
+            <!-- side body -->
+            <div class="side-body">
+                <!-- separate nav for ease development -->
+                <nav class="side-nav">
+                    <!-- open nav ul -->
+                    <ul>
+                        <li class="side-nav-item active">
+                            <a href="index.html">
+                                <i class="nav-item-icon icon ion-home"></i>
+                                Home
+                            </a>
+                        </li><!-- /Home-->
+                        <li class="side-nav-item">
+                            <a href="#class-1">
+                                <i class="nav-item-caret"></i>
+                                Grade 1 English
+                            </a>
+                            <ul id="class-1" class="side-nav-child">
+                                <li class="side-nav-item-heading">
+                                    <a href="#" class="side-nav-back">
+                                        <i class="nav-item-caret"></i>
+                                        Grade 1 English
+                                    </a>
+                                </li><!-- /header layouts child -->
+                                <li class="side-nav-item">
+                                    <a href="{% url 'students_profile' %}">
+                                        <span class="badge">3</span>
+                                        <i class="nav-item-icon icon ion-android-friends"></i>
+                                        Students
+                                    </a>
+                                </li><!-- /blank -->
+                                <li class="side-nav-item">
+                                    <a href="layout_static.html">
+                                        <i class="nav-item-icon icon ion-calendar"></i>
+                                        Schedule
+                                    </a>
+                                </li><!-- /variation -->
+                                <li class="side-nav-item">
+                                    <a href="layout_variation.html">
+                                        <i class="nav-item-icon icon ion-settings"></i>
+                                        Settings
+                                    </a>
+                                </li><!-- /variation -->
+                            </ul><!-- /layouts child -->
+                        </li><!-- /Class-1 -->
+                        <li class="side-nav-item">
+                            <a href="#class-2">
+                                <i class="nav-item-caret"></i>
+                                Grade 2 Math
+                            </a>
+                            <ul id="class-2" class="side-nav-child">
+                                <li class="side-nav-item-heading">
+                                    <a href="#" class="side-nav-back">
+                                        <i class="nav-item-caret"></i>
+                                        Grade 2 Math
+                                    </a>
+                                </li><!-- /header layouts child -->
+                                <li class="side-nav-item">
+                                    <a href="layout_blank.html">
+                                        <i class="nav-item-icon icon ion-android-friends"></i>
+                                        Students
+                                    </a>
+                                </li><!-- /blank -->
+                                <li class="side-nav-item">
+                                    <a href="layout_static.html">
+                                        <i class="nav-item-icon icon ion-calendar"></i>
+                                        Schedule
+                                    </a>
+                                </li><!-- /variation -->
+                                <li class="side-nav-item">
+                                    <a href="layout_variation.html">
+                                        <i class="nav-item-icon icon ion-settings"></i>
+                                        Settings
+                                    </a>
+                                </li><!-- /variation -->
+                            </ul><!-- /layouts child -->
+                        </li><!-- /Class-2 -->
+                        <li class="side-nav-item">
+                            <a href="tables.html">
+                                <i class="nav-item-icon icon ion-help-circled"></i>
+                                Support
+                            </a>
+                        </li><!-- /tables -->
+                    </ul><!-- /nav ul-->
+                </nav>
+
+            </div><!-- /side body -->
+        </aside><!-- /side left -->
+
+        <!-- define content theme, use data-swipe="true" to enable gesture event -->
+        <!-- (recomended: dont change the id value) -->
+        <section id="content" class="content">
+            <!-- define your content header here -->
+            <header class="content-header">
+                <!-- header actions -->
+                <div class="header-actions pull-right">
+                    <!-- (recomended: dont change the id value) -->
+                    <div class="btn-group">
+                        <a id="users-setting" class="btn btn-icon data-toggle" data-toggle="dropdown" role="button">
+                            <i class="icon ion-gear-b"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-extend pull-right" role="menu">
+                            <li class="dropdown-profile">
+                                <div class="dp-cover">
+                                    <img class="img-bg" src="{% static 'stock/app/img/cover-blur.jpg' %}" alt="">
+                                    <a class="img-avatar" href="page_profile.html">
+                                        <img class="img-circle" src="{% static 'stock/app/img/avatar4.png' %}" alt="">
+                                    </a>
+                                    <div class="dp-details">Mr. Doe - UI Designer</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row text-center">
+                                    <a href="#" class="col-lg-4 col-sm-4 col-sm-4 col-xs-4">138 <small>Posts</small></a>
+                                    <a href="#" class="col-lg-4 col-sm-4 col-sm-4 col-xs-4">26 <small>Items</small></a>
+                                    <a href="#" class="col-lg-4 col-sm-4 col-sm-4 col-xs-4">570 <small>Follow</small></a>
+                                </div>
+                            </li>
+                            <li class="dropdown-footer">
+                                <div class="clearfix">
+                                    <a href="page_signin.html" class="btn btn-sm btn-default pull-right">Sign out</a>
+                                    <a href="page_profile.html" class="btn btn-sm btn-default pull-left">Profile</a>
+                                </div>
+                            </li><!-- /dropdown-footer -->
+                        </ul><!-- /dropdown-extend -->
+                    </div><!-- /btn-group setting -->
+                </div><!-- /header actions -->
+
+                <!-- header actions -->
+                <div class="header-actions pull-left">
+                    <!-- (recomended: dont change the id value) -->
+                    <button id="toggle-content" class="btn btn-icon" type="button"><i class="icon ion-navicon-round"></i></button>
+                </div><!-- /header actions -->
+
+                <!-- your Awesome App title -->
+                <h1 class="content-title">Home</h1>
+            </header><!-- /side left -->
+
+
+            <!-- define content row -->
+            <div class="content-spliter">
+                {% block content %}{% endblock %}
+            </div><!-- /content spliter -->
+
+        </section><!-- /content -->
+    </section><!-- /wrapper -->
+
+
+
+
+    <!-- jQuery, theme required for theme -->
+    <script src="{% static 'stock/jquery/jquery.js' %}"></script>
+    <script src="{% static 'stock/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- theme dependencies -->
+    <!--
+        Contents List
+        1. Raphaël
+        2. Isotope
+        3. verge
+        4. Moment
+        5. Prettify
+    -->
+    <script src="{% static 'stock/app/js/dependencies.js' %}"></script>
+
+    <!-- other dependencies -->
+    <script src="{% static 'stock/jquery-icheck/jquery.icheck.min.js' %}"></script>
+    <script src="{% static 'stock/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+    <script src="{% static 'stock/morris/morris.min.js' %}"></script>
+    <script src="{% static 'stock/jquery-tags-input/jquery.tagsinput.min.js' %}"></script>
+    <script src="{% static 'stock/select2/select2.min.js' %}"></script>
+    <script src="{% static 'stock/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js' %}"></script>
+
+    <script src="{% static 'js/thirdparty/react.js' %}"></script>
+    <script src="{% static 'js/thirdparty/JSXTransformer.js' %}"></script>
+
+    <!-- theme app main.js -->
+    <script src="{% static 'stock/app/js/main.js' %}"></script>
+  </body>
+</html>
