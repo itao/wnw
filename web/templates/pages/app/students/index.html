@@ -1,7 +1,11 @@
 {% for student in students %}
     <div class="card people">
        <div class="card-top">
-          <a href="#">
+          <a
+            href="#"
+            data-url="{% url 'students_profile' student_id=student.id %}"
+            onclick="updateAppBody(this)"
+          >
              <img src="http://placehold.it/170x170" alt=""/>
           </a>
        </div>

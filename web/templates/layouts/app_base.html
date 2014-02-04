@@ -61,8 +61,11 @@
                 <nav id="side-nav" class="side-nav">
                     <!-- open nav ul -->
                     <ul>
-                        <li class="side-nav-item active">
-                            <a href="{% url 'index' %}">
+                        <li class="side-nav-item">
+                            <a
+                                href="{% url 'index' %}"
+                                onclick="updateContentTitle('Home')"
+                            >
                                 <i class="nav-item-icon icon ion-home"></i>
                                 Home
                             </a>
@@ -84,7 +87,11 @@
                                         </a>
                                     </li><!-- /header layouts child -->
                                     <li class="side-nav-item">
-                                        <a href="#" data-url="{% url 'students_index' %}" onclick="updateAppBody(this)">
+                                        <a
+                                            href="#"
+                                            data-url="{% url 'students_index' %}"
+                                            onclick="updateContentTitle('{{ class.name }}'); updateAppBody(this)"
+                                        >
                                             <span class="badge">{{ class.num_students }}</span>
                                             <i class="nav-item-icon icon ion-android-friends"></i>
                                             Students

@@ -22,7 +22,6 @@ def index(request):
 
     return HttpResponse(
         json.dumps({
-            'title': 'Students',
             'header': header,
             'body': body,
         }),
@@ -44,7 +43,6 @@ def add(request):
 
     return HttpResponse(
         json.dumps({
-            'title': 'Enroll Students',
             'header': header,
             'body': body,
         }),
@@ -57,17 +55,19 @@ def profile(request, student_id):
     student = Student.objects.get(pk=student_id)
 
     t = loader.get_template('pages/app/students/profile.html')
+    h = loader.get_template('pages/app/students/profile_header.html')
     c = RequestContext(
         request,
         {
             'student': student
         }
     )
+    header = h.render(c)
     body = t.render(c)
 
     return HttpResponse(
         json.dumps({
-            'title': student.name(),
+            'header': header,
             'body': body,
         }),
         mimetype="application/json"
