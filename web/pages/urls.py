@@ -13,4 +13,5 @@ urlpatterns = patterns('pages.views',
     url(r'^classes/', include('klasses.urls')),
     url(r'^students/', include('students.urls')),
     url(r'^schedules/', include('schedules.urls')),
+    url(r'^supers/', include('supers.urls')),
 )
