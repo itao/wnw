@@ -28,6 +28,8 @@ INSTALLED_APPS = (
     'parents',
 
     'notes',
+
+    'leads',
 )
 
 MIDDLEWARE_CLASSES = (
