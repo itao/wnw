@@ -1,0 +1,36 @@
+{% load staticfiles %}
+
+<section id="signin" class="sign-wrapper signin transition-layout">
+    <div class="row">
+        <div class="col-md-offset-4 col-sm-offset-0 col-xs-offset-0 col-md-4 col-sm-12 col-xs-12">
+            <div class="sign-brand">
+                <div class="sign-brand-logo">
+                    <img src="{% static 'stock/app/img/brand-md.png' %}" alt="Brand"/>
+                </div>
+                <h1 class="sign-brand-name">Syrena</h1>
+            </div><!-- /sign-brand -->
+            <div class="sign-container">
+                <form role="form" action="index.html">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="signin-username" placeholder="Username" >
+                    </div><!-- /form-group -->
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="signin-password" placeholder="Password" >
+                    </div><!-- /form-group -->
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Log In" >
+                    </div><!-- /form-group -->
+                    <div class="form-group">
+                        <input class="iCheck" id="rememberme" name="rememberme" type="checkbox" checked>
+                        <label class="icheck-label" for="rememberme">Stay sign in</label>
+                    </div><!-- /form-group -->
+                </form>
+            </div><!-- /sign-container -->
+        </div><!-- /col -->
+    </div><!-- /row -->
+
+    <div class="sign-footer">
+        <a href="#signup" data-toggle="transition-layout" class="btn btn-link text-inverse">Sign Up to syrena</a>
+        <a href="#recover" data-toggle="transition-layout" class="btn btn-link text-inverse">Forgot password</a>
+    </div><!-- /sign-footer -->
+</section><!-- /signin -->

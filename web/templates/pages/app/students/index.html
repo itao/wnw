@@ -1,0 +1,20 @@
+{% for student in students %}
+    <div class="card people">
+       <div class="card-top">
+          <a href="#">
+             <img src="http://placehold.it/170x170" alt=""/>
+          </a>
+       </div>
+       <div class="card-info">
+          <a
+            class="title"
+            href="#"
+            data-url="{% url 'students_profile' student_id=student.id %}"
+            onclick="loadInnerContent(this);">{{ student.name }}</a>
+          <div class="desc">Last assessed</div>
+       </div>
+       <div class="card-bottom">
+          <button class="btn btn-default"><i class="icon ion-compose"></i></button>
+       </div>
+    </div>
+{% endfor %}

@@ -1,4 +1,6 @@
 - include: zshrc_setup.yml
+- include: reactjs_dependencies.yml
+- include: ruby_dependencies.yml
 - include: python_setup.yml
 - include: python_dependencies.yml
 - include: secrets.yml

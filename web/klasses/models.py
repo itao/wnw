@@ -12,3 +12,6 @@ class Klass(models.Model):
 
     def name(self):
         return self.title
+
+    def num_students(self):
+        return self.student_set.count()
