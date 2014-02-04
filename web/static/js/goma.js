@@ -3,7 +3,7 @@ function loadInnerContent(elem) {
         type: "GET",
         url: $(elem).attr('data-url'),
         success: function(data) {
-            $('#inner-content').html(data.html);
+            $('#app-body').html(data.html);
             $('#content-title').html(data.title);
         }
     });

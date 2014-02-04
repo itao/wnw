@@ -169,9 +169,28 @@
 
             <!-- define content row -->
             <div class="content-spliter">
-                <div id="inner-content" class="content-app fixed-header">
-                    {% block content %}{% endblock %}
-                </div>
+                <!-- your app content -->
+                <div class="content-app fixed-header">
+                    <!-- app header -->
+                    <div id="app-header" class="app-header">
+                        <div class="pull-right">
+                            <a class="btn btn-default" role="button">Left</a>
+                            <a class="btn btn-default" role="button">Midle</a>
+                            <a class="btn btn-default" role="button">Right</a>
+                        </div>
+                        <ol class="breadcrumb bg-none pull-left hide-xs">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Library</a></li>
+                            <li class="active">Data</li>
+                        </ol>
+                        <!-- <h3 class="app-title">Drop App Modules</h3> -->
+                    </div><!-- /app header -->
+
+                    <!-- app body -->
+                    <div id="app-body" class="app-body">
+                        {% block content %}{% endblock %}
+                    </div><!-- app body -->
+                </div><!-- /content app -->
             </div><!-- /content spliter -->
 
         </section><!-- /content -->
