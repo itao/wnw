@@ -8,7 +8,6 @@ urlpatterns = patterns('pages.views',
     url(r'^welcome$', TemplateView.as_view(template_name='pages/landing/welcome.html'), name='welcome'),
 
     # Console pages
-    url(r'^home$', 'home', name='home'),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^teachers/', include('teachers.urls')),
     url(r'^students/', include('students.urls')),

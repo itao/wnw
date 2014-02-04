@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
+from klasses.models import Klass
+
 def welcome(request):
     template = 'pages/landing/welcome.html'
 
@@ -13,14 +15,14 @@ def welcome(request):
     )
 
 def index(request):
-    return HttpResponseRedirect(reverse('welcome'))
-
-def home(request):
     template = 'pages/app/home.html'
+
+    classes = Klass.objects.all()
 
     return render(
         request,
         template,
         {
+            'classes': classes
         }
     )

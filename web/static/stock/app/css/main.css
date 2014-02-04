@@ -4,7 +4,7 @@
  *
  * License:
  * For License Information check out - https://wrapbootstrap.com
- * 
+ *
  * Copyright 2014, Stilearning
  * http://stilearning.com
  */
@@ -80,7 +80,7 @@ body{
 	padding: 0;
 	width: 300px;
 	height: 100%;
-	
+
 	z-index: 2;
 }
 	.side-header{
@@ -155,7 +155,7 @@ body{
 			.side-nav-item.active > a:focus {
 			  	z-index: 2;
 			}
-			
+
 			.nav-item-caret{
 				float: left;
 				margin-left: -65px;
@@ -247,7 +247,7 @@ body{
 			  	margin-bottom: 0;
 			  	line-height: 1.3;
 			}
-		
+
 		.side-body > .side-wrapper{
 			position: absolute;		/* try to use relative for large searching (like .side-wrapper-large) */
 			padding: 10px;
@@ -256,7 +256,7 @@ body{
 			height: 100%;
 			display: none;
 			overflow: hidden;
-			
+
 			z-index: 99;
 		}
 		.side-body > .side-wrapper.side-wrapper-large{
@@ -305,14 +305,14 @@ body{
 			left: 0;
 			right: 0;
 			font-size: 1.4em;
-			font-weight: 500;
+			font-weight: 300;
 			margin: 0 !important;
 			padding: 0 !important;
 			line-height: 60px;
 			text-align: center;
 			z-index: 5;
 		}
-	
+
 	.content-spliter{
 		position: relative;
 		width: 100%;
@@ -423,7 +423,7 @@ body{
 			-webkit-transform: translateX(100%);
 			-moz-transform: translateX(100%);
 			transform: translateX(100%);
-			
+
 			-webkit-transition: all 0.3s ease;
 			-moz-transition: all 0.3s ease;
 			-ms-transition: all 0.3s ease;
@@ -502,12 +502,12 @@ body{
 
 
 
-/** 
+/**
  * Transition Layout
  * Working like a pagination but this use on singgle page/layout and transition
- * 
- * 
- * usage: 
+ *
+ *
+ * usage:
  *   <div class="transsition-layout">...</div>
  */
 .transition-layout{
@@ -550,7 +550,7 @@ body{
 
 	-webkit-animation-delay: .4s;
     -moz-animation-delay: .4s;
-    animation-delay: .4s;	
+    animation-delay: .4s;
 
     -webkit-animation: slideIn .7s ease both;
 	-o-animation: slideIn .7s ease both;
@@ -624,16 +624,16 @@ body{
 
 
 
-/** 
+/**
  * Magic layout with isotope
  * Beautifull layout inspired by google+
  * Support with 2-4 elements coloumn
  *
  * if your viewport > 1280 this is support with 2-4 elements coloumn
  * but if your viewport less then or equel 1280 this is only support with 2 element column
- * 
- * usage: 
- *   add data-cols="3" or data-cols="4" to magic layout element 
+ *
+ * usage:
+ *   add data-cols="3" or data-cols="4" to magic layout element
  *   <div class="magic-layout" data-cols="4">...</div>
  */
 .magic-layout{
@@ -786,7 +786,7 @@ body{
 .signin,
 .signup,
 .recover{
-	background: url('../img/bg-signin.jpg') no-repeat center center fixed; 
+	background: url('../img/bg-signin.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -824,7 +824,7 @@ body{
 
 }
 .error-msg{
-	background: url('../img/bg-signin.jpg') no-repeat center center fixed; 
+	background: url('../img/bg-signin.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -1158,7 +1158,7 @@ body{
 	transform: translate(300px);
 }
 
-/* 
+/*
 .gallery-item.expand::after {
     position: relative;
     top: -12px;
@@ -1187,7 +1187,7 @@ body{
 	margin-right: -35px;
 	text-align: right;
 }
-*/	
+*/
 /* End Gallery */
 
 
@@ -1392,7 +1392,7 @@ body{
 
 	-webkit-animation-duration: 1s;
 	animation-duration: 1s;
-	
+
 	-webkit-animation-fill-mode: both;
 	animation-fill-mode: both;
 }
@@ -2069,3 +2069,248 @@ body{
 	margin: 0.1em 0;
 }
 /* end morries */
+
+
+/* Bootplus - cards style */
+.card {
+  padding-top: 20px;
+  margin: 10px 0 20px 0;
+  background-color: #ffffff;
+  border: 1px solid #d8d8d8;
+  border-top-width: 0;
+  border-bottom-width: 2px;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.card .card-heading {
+  padding: 0 20px;
+  margin: 0;
+}
+
+.card .card-heading.simple {
+  font-size: 20px;
+  font-weight: 300;
+  color: #777;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.card .card-heading.image img {
+  display: inline-block;
+  width: 46px;
+  height: 46px;
+  margin-right: 15px;
+  vertical-align: top;
+  border: 0;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+}
+
+.card .card-heading.image .card-heading-header {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.card .card-heading.image .card-heading-header h3 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 16px;
+  color: #262626;
+}
+
+.card .card-heading.image .card-heading-header span {
+  font-size: 12px;
+  color: #999999;
+}
+
+.card .card-body {
+  padding: 0 20px;
+  margin-top: 20px;
+}
+
+.card .card-media {
+  padding: 0 20px;
+  margin: 0 -14px;
+}
+
+.card .card-media img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.card .card-actions {
+  min-height: 30px;
+  padding: 0 20px 20px 20px;
+  margin: 20px 0 0 0;
+}
+
+.card .card-comments {
+  padding: 20px;
+  margin: 0;
+  background-color: #f8f8f8;
+}
+
+.card .card-comments .comments-collapse-toggle {
+  padding: 0;
+  margin: 0 20px 12px 20px;
+}
+
+.card .card-comments .comments-collapse-toggle a,
+.card .card-comments .comments-collapse-toggle span {
+  padding-right: 5px;
+  overflow: hidden;
+  font-size: 12px;
+  color: #999;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-comments .media-heading {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.card.people {
+  position: relative;
+  display: inline-block;
+  width: 170px;
+  height: 300px;
+  padding-top: 0;
+  margin-left: 30px;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.card.people:first-child {
+  // margin-left: 0;
+}
+
+.card.people .card-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 170px;
+  height: 150px;
+  background-color: #ffffff;
+}
+
+.card.people .card-top.green {
+  background-color: #53a93f;
+}
+
+.card.people .card-top.blue {
+  background-color: #427fed;
+}
+
+.card.people .card-info {
+  position: absolute;
+  top: 170px;
+  display: inline-block;
+  width: 100%;
+  height: 101px;
+  overflow: hidden;
+  background: #ffffff;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.card.people .card-info .title {
+  display: block;
+  margin: 8px 14px 0 14px;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 18px;
+  color: #404040;
+  text-align: center;
+}
+
+.card.people .card-info .desc {
+  display: block;
+  margin: 8px 14px 0 14px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 16px;
+  color: #737373;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.card.people .card-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  padding: 10px 20px;
+  line-height: 29px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.card.hovercard {
+  position: relative;
+  width: 240px;
+  padding-top: 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: #fff;
+}
+
+.card.hovercard img {
+  width: 240px;
+  height: 135px;
+}
+
+.card.hovercard .avatar {
+  position: relative;
+  top: -40px;
+  margin-bottom: -40px;
+}
+
+.card.hovercard .avatar img {
+  width: 80px;
+  height: 80px;
+  max-width: 80px;
+  max-height: 80px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+}
+
+.card.hovercard .info {
+  padding: 4px 8px 10px;
+}
+
+.card.hovercard .info .title {
+  margin-bottom: 4px;
+  font-size: 24px;
+  line-height: 1;
+  color: #262626;
+  vertical-align: middle;
+}
+
+.card.hovercard .info .desc {
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 20px;
+  color: #737373;
+  text-overflow: ellipsis;
+}
+
+.card.hovercard .bottom {
+  padding: 0 20px;
+  margin-bottom: 17px;
+}
+/* end bootplus */
