@@ -10,27 +10,28 @@ from parents.models import Parent
 from teachers.models import Teacher
 
 def index(request):
-	template = 'pages/app/supers/index.html'
-    
-	t = loader.get_template(template)
+	'pages/app/supers/index.html'
+
+	t = loader.get_template('pages/app/supers/index.html')
+	h = loader.get_template('pages/app/supers/index_header.html')
 	c = RequestContext(
 	    request,
-	    {
-	        'student': student
-	    }
+	    {}
 	)
-	html = t.render(c)
+	header = h.render(c)
+	body = t.render(c)
 
 	return HttpResponse(
         json.dumps({
-            'title': 'Class Name - Students',
-            'html': html,
+            'title': 'Super',
+            'header': header,
+            'body': body,
         }),
         mimetype="application/json"
     )
 
-def students_stats(request):
-	template = 'pages/app/supers/students_stats.html'
+def students(request):
+	template = 'pages/app/supers/students.html'
 	students = Student.objects.all()
 	names = students.name
 
@@ -51,8 +52,8 @@ def students_stats(request):
 	    mimetype="application/json"
 	)
 
-def parents_stats(request):
-	template = 'pages/app/supers/parents_stats.html'
+def parents(request):
+	template = 'pages/app/supers/parents.html'
 	parents = Parent.objects.all()
 
 	t = loader.get_template(template)
@@ -72,8 +73,8 @@ def parents_stats(request):
 	    mimetype="application/json"
 	)
 
-def teachers_stats(request):
-	template = 'pages/app/supers/teachers_stats.html'
+def teachers(request):
+	template = 'pages/app/supers/teachers.html'
 	teachers = Teacher.objects.all()
 
 	t = loader.get_template(template)

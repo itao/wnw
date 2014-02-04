@@ -126,6 +126,13 @@
                 <div class="header-actions pull-right">
                     <!-- (recomended: dont change the id value) -->
                     <div class="btn-group">
+                        <button
+                            class="btn btn-icon"
+                            data-url="{% url 'supers_index' %}"
+                            onclick="updateAppBody(this)"
+                        >
+                            <i class="icon ion-speedometer"></i>
+                        </button>
                         <a id="users-setting" class="btn btn-icon data-toggle" data-toggle="dropdown" role="button">
                             <i class="icon ion-gear-b"></i>
                         </a>
