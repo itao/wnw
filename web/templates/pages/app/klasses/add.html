@@ -1,3 +1,5 @@
+{% load staticfiles %}
+<script src="{% static 'js/add-class.js' %}"></script>
 <div class="magic-layout isotope" style="position: relative; overflow: hidden; height: 3534px;">
     <div class="box magic-element width-full isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 0px, 0px);">
         <form id="add-class-form" class="form-horizontal" role="form">
@@ -5,9 +7,20 @@
                Basic Information
             </h2>
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="input">Class Name</label>
+                <label class="col-sm-2 control-label" for="classname">Class Name</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control form-ion" id="input" placeholder="Class name">
+                    <input type="text" class="form-control form-ion" id="classname" name="classname" placeholder="Class name">
+                </div>
+            </div><!-- /form-group -->
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="classdaterangepicker">Start and End Date</label>
+                <div class="col-sm-9">
+                    <div class='input-group date'>
+                        <span class="input-group-addon">
+                            <span class="icon ion-ios7-calendar-outline"></span>
+                        </span>
+                        <input type='text' class="form-control" id='classdaterangepicker' name="classdaterangepicker"/>
+                    </div>
                 </div>
             </div><!-- /form-group -->
              <div class="form-group">
@@ -40,31 +53,3 @@
         </form><!-- /form -->
     </div><!-- /box -->
 </div>
-
-<script type="text/javascript">
-    $(function(){
-        'use strict';
-
-        // colorpicker
-        $('#class-colour-picker').simplecolorpicker({
-            theme: 'glyphicons'
-        });
-
-        $('#add-class-form').validate({
-            errorElement: 'div',
-            errorClass: 'help-block',
-            focusInvalid: false,
-            rules: {
-                classname : {
-                    required: true,
-                },
-            },
-            messages: {
-                classname : {
-                    required: "Please provide a class name."
-                },
-            }
-        });
-
-    })
-</script>
