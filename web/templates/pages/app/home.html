@@ -2,20 +2,13 @@
 {% load staticfiles %}
 
 {% block header %}
-    <div class="pull-right">
-        <a
-            class="btn btn-ion btn-primary"
-            data-url="{% url 'classes_add' %}"
-            onclick="updateAppBody(this)"
-        >
-            <i class="icon ion-ios7-plus-outline"></i>
-            Add class
-        </a>
-    </div>
-    <ol class="breadcrumb bg-none pull-left hide-xs">
-        <li><a href="#">Home</a></li>
-    </ol>
-    <!-- <h3 class="app-title">Drop App Modules</h3> -->
+    <button
+        class="btn btn-ion btn-primary"
+        data-url="{% url 'classes_add' %}"
+        onclick="updateAppBody(this)"
+    >
+        Create class
+    </button>
 {% endblock %}
 
 {% block body %}

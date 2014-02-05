@@ -1,69 +1,79 @@
 {% load staticfiles %}
 
-<div class="row app-body">
-    <div class="col-md-3">
-        <img width="100%" src="http://placehold.it/300x300">
-    </div>
-    <div class="col-md-9">
-        <div class="panel panel-default magic-element isotope-item">
-            <a href="#" class="panel-body-heading full-line">
-                <div class="pb-object pb-object-circle">
-                    <img src="{% static 'stock/app/img/avatar3.png' %}" alt="">
-                </div><!-- /pb-object -->
-                <h3 class="pb-title">
-                    Text Based <small>Lorem ipsum dolor sit amet, consectetur</small>
-                </h3><!-- /pb-title -->
-            </a><!-- /panel-body-heading -->
-            <div class="kits-media">
-                <img src="{% static 'stock/app/img/img1.jpg' %}" alt="">
-            </div><!-- /kits-media -->
-            <div class="panel-body">
-                <p>
-                    <small class="text-muted">
-                        <i class="icon ion-person"></i> Mr. Doe
-                        &nbsp;&nbsp;
-                        <i class="icon ion-calendar"></i> Publish 1 day ago
-                    </small>
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, fuga, tempora totam natus dolorum illum odio optio possimus sit aliquam nihil amet nemo voluptatum suscipit repudiandae. Molestias sequi alias iste!</p>
-            </div><!-- /panel-body -->
-            <div class="panel-footer">
-                <a href="#" class="btn btn-default btn-sm pull-right">Download</a>
-                <a href="#" class="btn btn-default btn-sm"><i class="icon ion-thumbsup"></i> 246</a>
-                <a href="#" class="btn btn-default btn-sm"><i class="icon ion-social-twitter"></i></a>
-                <a href="#" class="btn btn-default btn-sm"><i class="icon ion-social-facebook"></i></a>
-                <a href="#" class="btn btn-default btn-sm"><i class="icon ion-social-googleplus"></i></a>
-            </div><!-- /panel-footer -->
+<div class="profile-cover">
+    <div class="pc-img">
+        <div class="pc-cover-change">
+            <div class="fileinput fileinput-new" data-provides="fileinput">
+                <span class="btn btn-ion btn-danger btn-file">
+                    <span class="fileinput-new">Change cover</span>
+                    <span class="fileinput-exists">Change cover</span>
+                    <input type="file" name="cover-changer" accept="image/*">
+                </span>
+                <!-- <span class="fileinput-filename"></span>
+                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a> -->
+            </div><!-- /fileinput -->
         </div>
-        <div class="panel panel-default magic-element isotope-item">
-            <a href="#" class="panel-body-heading full-line">
-                <div class="pb-object pb-object-circle">
-                    <img src="{% static 'stock/app/img/avatar3.png' %}" alt="">
-                </div><!-- /pb-object -->
-                <h3 class="pb-title">
-                    Text Based <small>Lorem ipsum dolor sit amet, consectetur</small>
-                </h3><!-- /pb-title -->
-            </a><!-- /panel-body-heading -->
-            <div class="kits-media">
-                <img src="{% static 'stock/app/img/img1.jpg' %}" alt="">
-            </div><!-- /kits-media -->
-            <div class="panel-body">
-                <p>
-                    <small class="text-muted">
-                        <i class="icon ion-person"></i> Mr. Doe
-                        &nbsp;&nbsp;
-                        <i class="icon ion-calendar"></i> Publish 1 day ago
-                    </small>
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, fuga, tempora totam natus dolorum illum odio optio possimus sit aliquam nihil amet nemo voluptatum suscipit repudiandae. Molestias sequi alias iste!</p>
-            </div><!-- /panel-body -->
-            <div class="panel-footer">
-                <a href="#" class="btn btn-default btn-sm pull-right">Download</a>
-                <a href="#" class="btn btn-default btn-sm"><i class="icon ion-thumbsup"></i> 246</a>
-                <a href="#" class="btn btn-default btn-sm"><i class="icon ion-social-twitter"></i></a>
-                <a href="#" class="btn btn-default btn-sm"><i class="icon ion-social-facebook"></i></a>
-                <a href="#" class="btn btn-default btn-sm"><i class="icon ion-social-googleplus"></i></a>
-            </div><!-- /panel-footer -->
-        </div>
-    </div>
-</div>
+        <img src="{% static 'stock/app/img/cover.jpg' %}" alt=""><!-- /img cover -->
+    </div><!-- /profile-cover-img -->
+
+    <div class="pc-details">
+        <img class="pc-details-bg" src="{% static 'stock/app/img/cover-blur.jpg' %}" alt=""><!-- /as bg pc-details -->
+        <div class="pc-details-content">
+            <div class="pc-details-pp">
+                <div class="pc-pp-change">
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <span class="btn btn-sm btn-ion btn-danger btn-file">
+                            <span class="fileinput-new"><i class="icon ion-camera"></i></span>
+                            <span class="fileinput-exists"><i class="icon ion-camera"></i></span>
+                            <input type="file" name="pp-changer" accept="image/*">
+                        </span>
+                    </div><!-- /fileinput -->
+                </div>
+                <img src="{% static 'stock/app/img/avatar4.png' %}" alt="" class="img-circle" width="128" /><!-- /photo profile -->
+            </div>
+            <h3>Mr. Doe</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, eligendi expedita assumenda ab</p>
+
+            <div class="pc-socials">
+                <a href="#" class="btn btn-flat btn-default btn-sm">
+                    &nbsp;<i class="icon ion-social-facebook text-info"></i>&nbsp;
+                </a>
+                <a href="#" class="btn btn-flat btn-default btn-sm">
+                    <i class="icon ion-social-dribbble text-danger"></i>
+                </a>
+                <a href="#" class="btn btn-flat btn-default btn-sm">
+                    <i class="icon ion-social-twitter text-info"></i>
+                </a>
+            </div>
+        </div><!-- /profile-cover-details-content -->
+    </div><!-- /profile-cover-details -->
+</div><!-- /profile-cover -->
+
+
+<div class="profile-actions">
+    <ul class="nav nav-pills nav-justified">
+        <li
+            data-url="{% url 'students_about' student_id=student.id %}"
+            onclick="updateStudentProfileBody(this)"
+        >
+            <a href="#">About</a>
+        </li>
+        <li
+            data-url="{% url 'students_posts' student_id=student.id %}"
+            onclick="updateStudentProfileBody(this)"
+        >
+            <a href="#">Posts</a>
+        </li>
+        <li
+            data-url="{% url 'students_report' student_id=student.id %}"
+            onclick="updateStudentProfileBody(this)"
+        >
+            <a href="#">Report</a>
+        </li>
+    </ul>
+</div><!-- /profile-actions -->
+
+
+<!-- student profile body -->
+<div id="student-profile-body">
+</div><!-- /student profile body-->
