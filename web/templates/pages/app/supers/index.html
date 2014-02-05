@@ -26,6 +26,7 @@
                 <th>email</th>
                 <th>Associated teachers</th>
                 <th>Lessons</th>
+                <th>testing</th>
             </tr>
         </thead>
         <tbody>
@@ -35,8 +36,9 @@
 	                <td>{{ student.account.first_name }}</td>
 	                <td>{{ student.account.last_name }}</td>
 	                <td>{{ student.account.email }}</td>
-	                <td>null</td>
-	                <td>null</td>
+	                <td>{{ student.klasses.teacher}}</td>
+	                <td>{{ student.klasses.title}}</td>
+	                <td>{{ students.count() }}</td>
 	            </tr>
             {% endfor %}
         </tbody>
