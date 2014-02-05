@@ -44,7 +44,7 @@ def enroll(request):
 
     return HttpResponse(
         json.dumps({
-            'title': 'Enroll Students',
+            'title': 'Class name',
             'header': header,
             'body': body,
         }),

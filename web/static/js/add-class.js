@@ -35,7 +35,12 @@ function save() {
 $(function(){
         'use strict';
 
-        $('#classdaterangepicker').daterangepicker();
+        $('#classdaterangepicker').daterangepicker(
+            {
+                format: 'YYYY-MM-DD',
+                buttonClasses: 'btn btn-ion'
+            }
+        );
 
         // colorpicker
         $('#class-colour-picker').simplecolorpicker({
