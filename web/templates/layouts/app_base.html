@@ -47,10 +47,12 @@
                 <!-- place your brand (recomended: dont change the id value) -->
                 <!-- (recomended: dont change the id value) -->
                 <h1 id="brand" class="brand">
-                    <a href="{% url 'welcome' %}">
+                    <a
+                        href="{% url 'index' %}"
+                        onclick="updateContentTitle('Home')"
+                    >
                         <!-- <i class="icon ion-waterdrop"></i> -->
-                        <img src="{% static 'stock/app/img/brand.png' %}" alt="Brand">   <!-- 32px image logo -->
-                        Sesame IO
+                        <img src="{% static 'img/nav-logo.png' %}" alt="Sesame IO">   <!-- 32px image logo -->
                     </a>
                 </h1><!-- /brand -->
             </div><!-- /side header -->
