@@ -35,12 +35,3 @@ def index(request):
         }),
         mimetype="application/json"
     )
-
-
-# def get_parents(request):
-# 	parents = Parent.objects.all()
-# 	pass
-
-# def get_teachers(request):
-# 	teachers = Teacher.objects.all()
-# 	pass
