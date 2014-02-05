@@ -7,8 +7,13 @@ function updateAppBody(elem) {
         type: "GET",
         url: $(elem).attr('data-url'),
         success: function(data) {
+            $(elem).siblings().removeClass('active')
+            $(elem).addClass('active');
+            if (data.title) {
+                $('#content-title').html(data.title);
+            }
             if (data.header) {
-                $('#app-header').html(data.header);
+                $('#header-actions').html(data.header);
             }
             if (data.body) {
                 $('#app-body').html(data.body);

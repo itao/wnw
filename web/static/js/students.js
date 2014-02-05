@@ -15,3 +15,17 @@ function confirmStudentEnrollment(elem) {
         }
     });
 }
+
+function updateStudentProfileBody(elem) {
+    $.ajax({
+        type: "GET",
+        url: $(elem).attr('data-url'),
+        success: function(data) {
+            if (data.html) {
+                $(elem).siblings().removeClass('active')
+                $(elem).addClass('active');
+                $('#student-profile-body').html(data.html);
+            }
+        }
+    })
+}

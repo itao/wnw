@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-width,height=device-height,target-densitydpi=device-dpi,user-scalable=yes" />
-    <title>{% block title %}Hello{% endblock %} | Sesame IO</title>
+    <title>Sesame IO | Make learning visible</title>
 
     <!-- fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'stock/app/ico/apple-touch-icon-144-precomposed.png' %}">
@@ -86,12 +86,12 @@
                                             {{ class.name }}
                                         </a>
                                     </li><!-- /header layouts child -->
-                                    <li class="side-nav-item">
-                                        <a
-                                            href="#"
-                                            data-url="{% url 'students_index' %}"
-                                            onclick="updateContentTitle('{{ class.name }}'); updateAppBody(this)"
-                                        >
+                                    <li
+                                        class="side-nav-item"
+                                        data-url="{% url 'students_index' %}"
+                                        onclick="updateContentTitle('{{ class.name }}'); updateAppBody(this)"
+                                    >
+                                        <a href="#">
                                             <span class="badge">{{ class.num_students }}</span>
                                             <i class="nav-item-icon icon ion-android-friends"></i>
                                             Students
@@ -130,37 +130,8 @@
             <!-- define your content header here -->
             <header class="content-header">
                 <!-- header actions -->
-                <div class="header-actions pull-right">
-                    <!-- (recomended: dont change the id value) -->
-                    <div class="btn-group">
-                        <a id="users-setting" class="btn btn-icon data-toggle" data-toggle="dropdown" role="button">
-                            <i class="icon ion-gear-b"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-extend pull-right" role="menu">
-                            <li class="dropdown-profile">
-                                <div class="dp-cover">
-                                    <img class="img-bg" src="{% static 'stock/app/img/cover-blur.jpg' %}" alt="">
-                                    <a class="img-avatar" href="page_profile.html">
-                                        <img class="img-circle" src="{% static 'stock/app/img/avatar4.png' %}" alt="">
-                                    </a>
-                                    <div class="dp-details">Mr. Doe - UI Designer</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row text-center">
-                                    <a href="#" class="col-lg-4 col-sm-4 col-sm-4 col-xs-4">138 <small>Posts</small></a>
-                                    <a href="#" class="col-lg-4 col-sm-4 col-sm-4 col-xs-4">26 <small>Items</small></a>
-                                    <a href="#" class="col-lg-4 col-sm-4 col-sm-4 col-xs-4">570 <small>Follow</small></a>
-                                </div>
-                            </li>
-                            <li class="dropdown-footer">
-                                <div class="clearfix">
-                                    <a href="page_signin.html" class="btn btn-sm btn-default pull-right">Sign out</a>
-                                    <a href="page_profile.html" class="btn btn-sm btn-default pull-left">Profile</a>
-                                </div>
-                            </li><!-- /dropdown-footer -->
-                        </ul><!-- /dropdown-extend -->
-                    </div><!-- /btn-group setting -->
+                <div id="header-actions" class="header-actions pull-right" style="padding-right: 13px;">
+                    {% block header %}{% endblock %}
                 </div><!-- /header actions -->
 
                 <!-- header actions -->
@@ -178,11 +149,6 @@
             <div class="content-spliter">
                 <!-- your app content -->
                 <div class="content-app fixed-header">
-                    <!-- app header -->
-                    <div id="app-header" class="app-header">
-                        {% block header %}{% endblock %}
-                    </div><!-- /app header -->
-
                     <!-- app body -->
                     <div id="app-body" class="app-body">
                         {% block body %}{% endblock %}
@@ -227,6 +193,7 @@
 
     <!-- Goma js -->
     <script src="{% static 'js/goma.js' %}"></script>
+    <script src="{% static 'js/students.js' %}"></script>
 
   </body>
 </html>

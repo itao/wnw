@@ -22,6 +22,7 @@ def index(request):
 
     return HttpResponse(
         json.dumps({
+            'title': 'Class name',
             'header': header,
             'body': body,
         }),
@@ -29,7 +30,7 @@ def index(request):
     )
 
 
-def add(request):
+def enroll(request):
     classes = Klass.objects.all()
 
     t = loader.get_template('pages/app/students/enroll.html')
@@ -43,6 +44,7 @@ def add(request):
 
     return HttpResponse(
         json.dumps({
+            'title': 'Enroll Students',
             'header': header,
             'body': body,
         }),
@@ -69,6 +71,59 @@ def profile(request, student_id):
         json.dumps({
             'header': header,
             'body': body,
+        }),
+        mimetype="application/json"
+    )
+
+
+def about(request, student_id):
+    student = Student.objects.get(pk=student_id)
+
+    t = loader.get_template('pages/app/students/about.html')
+    c = RequestContext(
+        request,
+        {}
+    )
+    html = t.render(c)
+
+    return HttpResponse(
+        json.dumps({
+            'html': html,
+        }),
+        mimetype="application/json"
+    )
+
+
+def posts(request, student_id):
+    student = Student.objects.get(pk=student_id)
+
+    t = loader.get_template('pages/app/students/posts.html')
+    c = RequestContext(
+        request,
+        {}
+    )
+    html = t.render(c)
+
+    return HttpResponse(
+        json.dumps({
+            'html': html,
+        }),
+        mimetype="application/json"
+    )
+
+def report(request, student_id):
+    student = Student.objects.get(pk=student_id)
+
+    t = loader.get_template('pages/app/students/report.html')
+    c = RequestContext(
+        request,
+        {}
+    )
+    html = t.render(c)
+
+    return HttpResponse(
+        json.dumps({
+            'html': html,
         }),
         mimetype="application/json"
     )
