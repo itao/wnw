@@ -16,20 +16,22 @@ function convertDateFormat(dateString) {
 }
 function save() {
     form = $('#add-class-form');
-    classname = form.find('input[name=classname]').val();
-    dates = form.find('input[name=classdaterangepicker]').val();
-    colour = form.find('select[name=class-colour-picker]').val();
-    dates = dates.split(' - ');
-    start = convertDateFormat(dates[0]);
-    end = convertDateFormat(dates[1]);
-    data = {
-        'title' : classname,
-        'start' : start,
-        'end'   : end,
-        'teacher' : 1,
-        'colour': colour
+    if (form.valid()) {
+        classname = form.find('input[name=classname]').val();
+        dates = form.find('input[name=classdaterangepicker]').val();
+        colour = form.find('select[name=class-colour-picker]').val();
+        dates = dates.split(' - ');
+        start = convertDateFormat(dates[0]);
+        end = convertDateFormat(dates[1]);
+        data = {
+            'title' : classname,
+            'start' : start,
+            'end'   : end,
+            'teacher' : 1,
+            'colour': colour
+        }
+        addClass(JSON.stringify(data));
     }
-    addClass(JSON.stringify(data));
  }
 
 $(function(){
@@ -42,6 +44,11 @@ $(function(){
             theme: 'glyphicons'
         });
 
+
+        jQuery.validator.addMethod('dateRange', function(value, element) {
+            return true
+        }, 'Please specify date range in format "MM/DD/YYYY - MM/DD/YYYY"');
+
         $('#add-class-form').validate({
             errorElement: 'div',
             errorClass: 'help-block',
@@ -50,6 +57,9 @@ $(function(){
                 classname : {
                     required: true,
                 },
+                classdaterangepicker : {
+                    dateRange : true
+                }
             },
             messages: {
                 classname : {
@@ -57,5 +67,6 @@ $(function(){
                 },
             }
         });
+
 
     })

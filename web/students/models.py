@@ -9,7 +9,10 @@ class Student(models.Model):
     klasses = models.ManyToManyField(Klass, blank=True, null=True, related_name="students")
 
     def name(self):
-        return self.account.get_full_name()
+        if self.account is not None:
+            return self.account.get_full_name()
+        else:
+            return ''
 
 
 # Assume comma-separated values: first name, last name, email (optional, ID (optional)
