@@ -8,5 +8,5 @@ class KlassSerializer(s.ModelSerializer):
 
     class Meta:
         model = Klass
-        fields = ('id', 'teacher', 'coteachers', 'title', 'code', 'start', 'end', 'colour')
+        fields = ('id', 'teacher', 'coteachers', 'name', 'code', 'start', 'end', 'colour')
 
