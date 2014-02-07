@@ -101,6 +101,61 @@
               </div>
           {{/each}}
         </script>
+        <script type="text/x-handlebars-template" id="create-klass-template">
+            <div class="magic-layout">
+                <div class="box magic-element width-full">
+                    <form id="add-class-form" class="form-horizontal" role="form">
+                        <h2 class="box-heading">
+                         Basic Information
+                     </h2>
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label" for="classname">Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control form-ion" id="classname" name="classname" placeholder="Class name">
+                        </div>
+                    </div><!-- /form-group -->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="classdaterangepicker">Semester</label>
+                        <div class="col-sm-9">
+                            <div class='input-group date'>
+                                <span class="input-group-addon">
+                                    <span class="icon ion-ios7-calendar-outline"></span>
+                                </span>
+                                <input type='text' class="form-control" id='classdaterangepicker' name="classdaterangepicker"/>
+                            </div>
+                        </div>
+                    </div><!-- /form-group -->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="select">Colour</label>
+                        <div class="col-sm-10">
+                            <select id="class-colour-picker" name="class-colour-picker">
+                                <option value="#1abc9c">Turquoise</option>
+                                <option value="#16a085">Greensea</option>
+                                <option value="#f1c40f">Sunflower</option>
+                                <option value="#f39c12">Orange</option>
+                                <option value="#2ecc71">Emerald</option>
+                                <option value="#27ae60">Nephritis</option>
+                                <option value="#e67e22">Carrot</option>
+                                <option value="#d35400">Pumpkin</option>
+                                <option value="#3498db">Peterriver</option>
+                                <option value="#2980b9">Belizehole</option>
+                                <option value="#e74c3c">Alizarin</option>
+                                <option value="#c0392b">Pomegranate</option>
+                                <option value="#9b59b6">Amethyst</option>
+                                <option value="#8e44ad">Wisteria</option>
+                                <option value="#ecf0f1">Cloud</option>
+                                <option value="#bdc3c7">Silver</option>
+                                <option value="#34495e">Wetasphalt</option>
+                                <option value="#2c3e50">Midnightblue</option>
+                                <option value="#95a5a6">Concrete</option>
+                                <option value="#7f8c8d">Asbestos</option>
+                            </select>
+                        </div>
+                    </div><!-- /form-group -->
+                </form><!-- /form -->
+            </div><!-- /box -->
+        </div>
+        </script>
         {% endverbatim %}
     </head>
 
@@ -132,9 +187,6 @@
                 <header class="content-header">
                     <!-- header actions -->
                     <div id="header-actions" class="header-actions pull-right" style="padding-right: 13px;">
-                        <button class="btn btn-ion btn-primary">
-                            Add class
-                        </button>
                     </div><!-- /header actions -->
 
                     <!-- header actions -->
@@ -176,6 +228,8 @@
         -->
         <script src="{% static 'stock/app/js/dependencies.js' %}"></script>
         <script src="{% static 'stock/app/js/main.js' %}"></script>
+        <script src="{% static 'stock/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+        <script src="{% static 'stock/jquery-simplecolorpicker/jquery.simplecolorpicker.js' %}"></script>
 
         <!-- Backbone dependencies -->
         <script src="{% static 'js/lib/backbone-min.js' %}"></script>

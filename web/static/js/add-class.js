@@ -9,26 +9,8 @@ function addClass(data) {
     })
 }
 
-function convertDateFormat(dateString) {
-    date = new Date(dateString);
-    newString = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
-    return newString;
-}
 function save() {
-    form = $('#add-class-form');
-    classname = form.find('input[name=classname]').val();
-    dates = form.find('input[name=classdaterangepicker]').val();
-    colour = form.find('select[name=class-colour-picker]').val();
-    dates = dates.split(' - ');
-    start = convertDateFormat(dates[0]);
-    end = convertDateFormat(dates[1]);
-    data = {
-        'title' : classname,
-        'start' : start,
-        'end'   : end,
-        'teacher' : 1,
-        'colour': colour
-    }
+
     addClass(JSON.stringify(data));
  }
 
