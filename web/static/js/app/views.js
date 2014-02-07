@@ -24,9 +24,10 @@ var MainNavView = Backbone.HandlebarsView.extend({
     events: {
         'click .side-nav-back': 'back',
         'click .klass .side-nav-open': 'selectKlass',
-        'click .students': 'selectStudents',
-        //'click .settings': 'selectStudents',
-        //'click .schedules': 'selectStudents',
+        'click .overview': 'showKlass',
+        'click .students': 'showStudents',
+        //'click .settings': 'showStudents',
+        //'click .schedules': 'showStudents',
     },
 
     initialize: function(){
@@ -44,10 +45,15 @@ var MainNavView = Backbone.HandlebarsView.extend({
         var id = $(event.currentTarget).closest('*[data-id]').attr('data-id');
         this.model.each(function(k){k.set('selected',false)});
         this.model.get(id).set('selected',true);
-        router.navigate('classes/' + id, {trigger: true});
     },
 
-    selectStudents: function(event){
+    showKlass: function(event){
+        var id = $(event.currentTarget).closest('*[data-id]').attr('data-id');
+        router.navigate('classes/' + id, {trigger: true});
+        return false;
+    },
+
+    showStudents: function(event){
         var id = $(event.currentTarget).closest('*[data-id]').attr('data-id');
         router.navigate('classes/' + id + '/students', {trigger: true});
         return false;
@@ -136,11 +142,42 @@ var CreateKlassView = Backbone.HandlebarsView.extend({
     }
 });
 
-var StudentsView = Backbone.HandlebarsView.extend({
 
+var KlassView = Backbone.HandlebarsView.extend({
     initialize: function(){
         this.render();
     },
 
+    template: $('#klass-overview-template').html()
+});
+
+var StudentsView = Backbone.HandlebarsView.extend({
+
+    events: {
+        'click .student': 'showStudentProfile',
+    },
+
+    initialize: function(options){
+        this.options = options;
+        this.render();
+    },
+
+    showStudentProfile: function(event){
+        var klass_id  = this.options.klass_id
+        var student_id = $(event.currentTarget).closest('*[data-id]').attr('data-id');
+        router.navigate('classes/' + klass_id + '/students/' + student_id, {trigger: true});
+        return false;
+    },
+
     template: $('#students-template').html()
 });
+
+var StudentProfileView = Backbone.HandlebarsView.extend({
+    initialize: function(){
+        var self = this;
+        self.listenTo(self.model, "change", self.render);
+        this.render();
+    },
+
+    template: $('#student-profile-template').html()
+})

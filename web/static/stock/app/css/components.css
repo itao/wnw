@@ -2075,7 +2075,7 @@ ul.messenger-theme-flat .messenger-message-slot.messenger-first.messenger-last .
 	right: 0px;
 	width: 100px;
 	height: 100%;
-	box-shadow: 0 0 10px #c0392b, 0 0 5px #c0392b;
+	box-shadow: 0 0 10px #8ec967, 0 0 5px #8ec967;
 	opacity: 1.0;
 	-webkit-transform: rotate(3deg) translate(0px, -4px);
 	-moz-transform: rotate(3deg) translate(0px, -4px);
@@ -2092,8 +2092,8 @@ ul.messenger-theme-flat .messenger-message-slot.messenger-first.messenger-last .
 	width: 14px;
 	height: 14px;
 	border: solid 2px transparent;
-	border-top-color: #c0392b;
-	border-left-color: #c0392b;
+	border-top-color: #8ec967;
+	border-left-color: #8ec967;
 	border-radius: 10px;
 	-webkit-animation: pace-spinner 400ms linear infinite;
 	-moz-animation: pace-spinner 400ms linear infinite;

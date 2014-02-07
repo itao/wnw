@@ -22,7 +22,8 @@ var AllKlasses = Backbone.Collection.extend({
 var allKlasses = new AllKlasses();
 
 var Student = Backbone.Model.extend({
-    defaults: {}
+    defaults: {},
+    url: '/api/students/:id'
 })
 
 var StudentsInKlass = Backbone.Collection.extend({

@@ -3,7 +3,8 @@ var router = new (Backbone.Router.extend({
         '': 'showHome',
         'classes/create': 'createKlass',
         'classes/:id': 'showKlass',
-        'classes/:id/students': 'showStudents'
+        'classes/:class_id/students': 'showStudents',
+        'classes/:class_id/students/:id': 'showStudentProfile'
     },
 
     showHome: function(){
@@ -23,16 +24,32 @@ var router = new (Backbone.Router.extend({
     showKlass: function(id){
         allKlasses.fetch().done(function(){
             var klass = allKlasses.get(id);
-            klass.students.fetch();
+            klass.students.fetch().done(function() {
+                $('#app-body').empty();
+                headerView.setTitle(klass.name);
+                headerView.setButtons($(''));
+                (new KlassView({model: klass})).$el.appendTo('#app-body');
+            });
         });
     },
 
     showStudents: function(id){
         allKlasses.fetch().done(function(){
-            console.log("Show students " + id);
             var klass = allKlasses.get(id);
             klass.students.fetch().done(function(){
-                (new StudentsView({model: klass.students})).$el.appendTo('#app-body');
+                $('#app-body').empty();
+                (new StudentsView({model: klass.students, klass_id: id})).$el.appendTo('#app-body');
+            });
+        });
+    },
+
+    showStudentProfile: function(class_id, student_id){
+        allKlasses.fetch().done(function(){
+            var klass = allKlasses.get(class_id);
+            klass.students.fetch().done(function() {
+                var student = klass.students.get(student_id);
+                $('#app-body').empty();
+                (new StudentProfileView({model: student})).$el.appendTo('#app-body');
             });
         });
     }

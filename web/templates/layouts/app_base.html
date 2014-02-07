@@ -59,47 +59,35 @@
                                 {{ name }}
                             </a>
                         </li><!-- /header layouts child -->
+                        <li class="side-nav-item overview">
+                            <a href="#">
+                                <i class="nav-item-icon icon ion-flash"></i>
+                                Overview
+                            </a>
+                        </li>
                         <li class="side-nav-item students">
                             <a href="#">
                                 <span class="badge">{{students.length}}</span>
                                 <i class="nav-item-icon icon ion-android-friends"></i>
                                 Students
                             </a>
-                        </li><!-- /blank -->
+                        </li>
                         <li class="side-nav-item schedule">
                             <a href="#">
                                 <i class="nav-item-icon icon ion-calendar"></i>
                                 Schedule
                             </a>
-                        </li><!-- /variation -->
+                        </li>
                         <li class="side-nav-item settings">
                             <a href="#">
                                 <i class="nav-item-icon icon ion-settings"></i>
                                 Settings
                             </a>
-                        </li><!-- /variation -->
+                        </li>
                     </ul><!-- /layouts child -->
                 </li><!-- /Class -->
                 {{/each}}
             </ul><!-- /nav ul-->
-        </script>
-        <script type="text/x-handlebars-template" id="students-template">
-            {{#each this}}
-                <div class="card people">
-                   <div class="card-top">
-                      <a href="#">
-                          <img src="http://placehold.it/170x170" alt=""/>
-                      </a>
-                  </div>
-                  <div class="card-info">
-                      <a class="title"href="#">{{ name }}</a>
-                      <div class="desc">Last assessed</div>
-                  </div>
-                  <div class="card-bottom">
-                      <button class="btn btn-default"><i class="icon ion-compose"></i></button>
-                  </div>
-              </div>
-          {{/each}}
         </script>
         <script type="text/x-handlebars-template" id="create-klass-template">
             <div class="magic-layout">
@@ -155,6 +143,86 @@
                 </form><!-- /form -->
             </div><!-- /box -->
         </div>
+        </script>
+        <script type="text/x-handlebars-template" id="klass-overview-template">
+            Placeholder for {{ name }}
+        </script>
+        <script type="text/x-handlebars-template" id="students-template">
+            {{#each this}}
+                <div class="card people" data-id="{{ id }}">
+                    <div class="card-top">
+                        <a href="#" class="student">
+                            <img src="http://placehold.it/170x170" alt=""/>
+                        </a>
+                    </div>
+                    <div class="card-info">
+                        <a class="title student" href="#">{{ id }}</a>
+                        <div class="desc">Last assessed</div>
+                    </div>
+                    <div class="card-bottom">
+                        <button class="btn btn-default"><i class="icon ion-compose"></i></button>
+                    </div>
+                </div>
+            {{/each}}
+        </script>
+        <script type="text/x-handlebars-template" id="student-profile-template">
+            <div class="profile-cover">
+                <div class="pc-img">
+                    <div class="pc-cover-change">
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <span class="btn btn-ion btn-danger btn-file">
+                                <span class="fileinput-new">Change cover</span>
+                                <span class="fileinput-exists">Change cover</span>
+                                <input type="file" name="cover-changer" accept="image/*">
+                            </span>
+                            <!-- <span class="fileinput-filename"></span>
+                            <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a> -->
+                        </div><!-- /fileinput -->
+                    </div>
+                    <img src="http://placehold.it/1000x568" alt=""><!-- /img cover -->
+                </div><!-- /profile-cover-img -->
+
+                <div class="pc-details">
+                    <img class="pc-details-bg" src="http://placehold.it/704x400" alt=""><!-- /as bg pc-details -->
+                    <div class="pc-details-content">
+                        <div class="pc-details-pp">
+                            <div class="pc-pp-change">
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <span class="btn btn-sm btn-ion btn-danger btn-file">
+                                        <span class="fileinput-new"><i class="icon ion-camera"></i></span>
+                                        <span class="fileinput-exists"><i class="icon ion-camera"></i></span>
+                                        <input type="file" name="pp-changer" accept="image/*">
+                                    </span>
+                                </div><!-- /fileinput -->
+                            </div>
+                            <img src="http://placehold.it/215x215" alt="" class="img-circle" width="128" /><!-- /photo profile -->
+                        </div>
+                        <h3>Mr. Doe</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, eligendi expedita assumenda ab</p>
+
+                        <div class="pc-socials">
+                            <a href="#" class="btn btn-flat btn-default btn-sm">
+                                &nbsp;<i class="icon ion-social-facebook text-info"></i>&nbsp;
+                            </a>
+                            <a href="#" class="btn btn-flat btn-default btn-sm">
+                                <i class="icon ion-social-dribbble text-danger"></i>
+                            </a>
+                            <a href="#" class="btn btn-flat btn-default btn-sm">
+                                <i class="icon ion-social-twitter text-info"></i>
+                            </a>
+                        </div>
+                    </div><!-- /profile-cover-details-content -->
+                </div><!-- /profile-cover-details -->
+            </div><!-- /profile-cover -->
+
+
+            <div class="profile-actions">
+                <ul class="nav nav-pills nav-justified">
+                    <li> <a href="#">About</a> </li>
+                    <li> <a href="#">Posts</a> </li>
+                    <li> <a href="#">Report</a> </li>
+                </ul>
+            </div><!-- /profile-actions -->
         </script>
         {% endverbatim %}
     </head>
