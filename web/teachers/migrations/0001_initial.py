@@ -10,8 +10,9 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         # Adding model 'Teacher'
         db.create_table(u'teachers_teacher', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('account', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['accounts.User'])),
+            (u'user_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['accounts.User'], unique=True, primary_key=True)),
+            ('picture', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
+            ('school', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['schools.School'], null=True, blank=True)),
         ))
         db.send_create_signal(u'teachers', ['Teacher'])
 
@@ -57,10 +58,17 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
+        u'schools.school': {
+            'Meta': {'object_name': 'School'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'logo': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '200'})
+        },
         u'teachers.teacher': {
-            'Meta': {'object_name': 'Teacher'},
-            'account': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['accounts.User']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
+            'Meta': {'object_name': 'Teacher', '_ormbases': [u'accounts.User']},
+            'picture': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['schools.School']", 'null': 'True', 'blank': 'True'}),
+            u'user_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['accounts.User']", 'unique': 'True', 'primary_key': 'True'})
         }
     }
 

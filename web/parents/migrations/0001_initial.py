@@ -10,8 +10,7 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         # Adding model 'Parent'
         db.create_table(u'parents_parent', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('account', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['accounts.User'])),
+            (u'user_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['accounts.User'], unique=True, primary_key=True)),
             ('picture', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
         ))
         db.send_create_signal(u'parents', ['Parent'])
@@ -72,20 +71,20 @@ class Migration(SchemaMigration):
         },
         u'klasses.klass': {
             'Meta': {'object_name': 'Klass'},
-            'code': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '40'}),
+            'code': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '40', 'blank': 'True'}),
             'colour': ('django.db.models.fields.CharField', [], {'default': "'#999999'", 'max_length': '7'}),
+            'coteachers': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'coclasses'", 'null': 'True', 'symmetrical': 'False', 'to': u"orm['teachers.Teacher']"}),
             'end': ('django.db.models.fields.DateField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
             'start': ('django.db.models.fields.DateField', [], {}),
-            'teacher': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['teachers.Teacher']"}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '200'})
+            'teacher': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'classes'", 'to': u"orm['teachers.Teacher']"})
         },
         u'parents.parent': {
-            'Meta': {'object_name': 'Parent'},
-            'account': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['accounts.User']"}),
-            'children': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['students.Student']", 'null': 'True', 'blank': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'picture': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'})
+            'Meta': {'object_name': 'Parent', '_ormbases': [u'accounts.User']},
+            'children': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'parents'", 'null': 'True', 'symmetrical': 'False', 'to': u"orm['students.Student']"}),
+            'picture': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            u'user_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['accounts.User']", 'unique': 'True', 'primary_key': 'True'})
         },
         u'schools.school': {
             'Meta': {'object_name': 'School'},
@@ -94,18 +93,16 @@ class Migration(SchemaMigration):
             'name': ('django.db.models.fields.CharField', [], {'max_length': '200'})
         },
         u'students.student': {
-            'Meta': {'object_name': 'Student'},
-            'account': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['accounts.User']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'klasses': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['klasses.Klass']", 'null': 'True', 'blank': 'True'}),
-            'picture': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'})
+            'Meta': {'object_name': 'Student', '_ormbases': [u'accounts.User']},
+            'klasses': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'students'", 'null': 'True', 'symmetrical': 'False', 'to': u"orm['klasses.Klass']"}),
+            'picture': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            u'user_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['accounts.User']", 'unique': 'True', 'primary_key': 'True'})
         },
         u'teachers.teacher': {
-            'Meta': {'object_name': 'Teacher'},
-            'account': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['accounts.User']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'Meta': {'object_name': 'Teacher', '_ormbases': [u'accounts.User']},
             'picture': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['schools.School']", 'null': 'True', 'blank': 'True'})
+            'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['schools.School']", 'null': 'True', 'blank': 'True'}),
+            u'user_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['accounts.User']", 'unique': 'True', 'primary_key': 'True'})
         }
     }
 
