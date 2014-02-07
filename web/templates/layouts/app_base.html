@@ -34,6 +34,74 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js' %}"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js' %}"></script>
         <![endif]-->
+
+        {% verbatim %}
+        <script type="text/x-handlebars-template" id="main-nav-template">
+            <!-- open nav ul -->
+            <ul>
+                <li class="side-nav-item home">
+                    <a href="#">
+                        <i class="nav-item-icon icon ion-home"></i>
+                        Home
+                    </a>
+                </li><!-- /Home-->
+                <!-- List classes -->
+                {{#each this}}
+                <li class="side-nav-item klass" data-id="{{ id }}">
+                    <a class="side-nav-open" href="#class-{{ id }}">
+                        <i class="nav-item-caret"></i>
+                        {{ name }}
+                    </a>
+                    <ul id="class-{{ id }}" class="side-nav-child {{#if selected}}open{{/if}}">
+                        <li class="side-nav-item-heading">
+                            <a href="#" class="side-nav-back">
+                                <i class="nav-item-caret"></i>
+                                {{ name }}
+                            </a>
+                        </li><!-- /header layouts child -->
+                        <li class="side-nav-item students">
+                            <a href="#">
+                                <span class="badge">{{students.length}}</span>
+                                <i class="nav-item-icon icon ion-android-friends"></i>
+                                Students
+                            </a>
+                        </li><!-- /blank -->
+                        <li class="side-nav-item schedule">
+                            <a href="#">
+                                <i class="nav-item-icon icon ion-calendar"></i>
+                                Schedule
+                            </a>
+                        </li><!-- /variation -->
+                        <li class="side-nav-item settings">
+                            <a href="#">
+                                <i class="nav-item-icon icon ion-settings"></i>
+                                Settings
+                            </a>
+                        </li><!-- /variation -->
+                    </ul><!-- /layouts child -->
+                </li><!-- /Class -->
+                {{/each}}
+            </ul><!-- /nav ul-->
+        </script>
+        <script type="text/x-handlebars-template" id="students-template">
+            {{#each this}}
+                <div class="card people">
+                   <div class="card-top">
+                      <a href="#">
+                          <img src="http://placehold.it/170x170" alt=""/>
+                      </a>
+                  </div>
+                  <div class="card-info">
+                      <a class="title"href="#">{{ name }}</a>
+                      <div class="desc">Last assessed</div>
+                  </div>
+                  <div class="card-bottom">
+                      <button class="btn btn-default"><i class="icon ion-compose"></i></button>
+                  </div>
+              </div>
+          {{/each}}
+        </script>
+        {% endverbatim %}
     </head>
 
     <body>
@@ -55,52 +123,7 @@
                 <!-- side body -->
                 <div class="side-body">
                     <!-- separate nav for ease development -->
-                    <nav id="side-nav" class="side-nav">
-                        <!-- open nav ul -->
-                        <ul>
-                            <li class="side-nav-item">
-                                <a href="#">
-                                    <i class="nav-item-icon icon ion-home"></i>
-                                    Home
-                                </a>
-                            </li><!-- /Home-->
-                            <!-- List classes -->
-                            <li class="side-nav-item">
-                                <a href="#class-1">
-                                    <i class="nav-item-caret"></i>
-                                    Class #
-                                </a>
-                                <ul id="class-1" class="side-nav-child">
-                                    <li class="side-nav-item-heading">
-                                        <a href="#" class="side-nav-back">
-                                            <i class="nav-item-caret"></i>
-                                            Classs #
-                                        </a>
-                                    </li><!-- /header layouts child -->
-                                    <li class="side-nav-item">
-                                        <a href="#">
-                                            <span class="badge">3</span>
-                                            <i class="nav-item-icon icon ion-android-friends"></i>
-                                            Students
-                                        </a>
-                                    </li><!-- /blank -->
-                                    <li class="side-nav-item">
-                                        <a href="#">
-                                            <i class="nav-item-icon icon ion-calendar"></i>
-                                            Schedule
-                                        </a>
-                                    </li><!-- /variation -->
-                                    <li class="side-nav-item">
-                                        <a href="#">
-                                            <i class="nav-item-icon icon ion-settings"></i>
-                                            Settings
-                                        </a>
-                                    </li><!-- /variation -->
-                                </ul><!-- /layouts child -->
-                            </li><!-- /Class-1 -->
-                        </ul><!-- /nav ul-->
-                    </nav>
-
+                    <nav id="main-nav" class="side-nav"></nav>
                 </div><!-- /side body -->
             </aside><!-- /side left -->
 
@@ -156,6 +179,11 @@
 
         <!-- Backbone dependencies -->
         <script src="{% static 'js/lib/backbone-min.js' %}"></script>
+        <script src="{% static 'js/lib/handlebars-v1.3.0.js' %}"></script>
+        <script src="{% static 'js/lib/backbone.handlebars.min.js' %}"></script>
         <script src="{% static 'js/app/models.js' %}"></script>
+        <script src="{% static 'js/app/views.js' %}"></script>
+        <script src="{% static 'js/app/routes.js' %}"></script>
+        <script src="{% static 'js/app/bootstrap.js' %}"></script>
     </body>
 </html>
