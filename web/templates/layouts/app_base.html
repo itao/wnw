@@ -65,41 +65,39 @@
                                 </a>
                             </li><!-- /Home-->
                             <!-- List classes -->
-                            {% for class in classes %}
-                                <li class="side-nav-item">
-                                    <a href="#class-{{ class.id }}">
-                                        <i class="nav-item-caret"></i>
-                                        {{ class.name }}
-                                    </a>
-                                    <ul id="class-{{ class.id }}" class="side-nav-child">
-                                        <li class="side-nav-item-heading">
-                                            <a href="#" class="side-nav-back">
-                                                <i class="nav-item-caret"></i>
-                                                {{ class }}
-                                            </a>
-                                        </li><!-- /header layouts child -->
-                                        <li class="side-nav-item">
-                                            <a href="#">
-                                                <span class="badge">3</span>
-                                                <i class="nav-item-icon icon ion-android-friends"></i>
-                                                Students
-                                            </a>
-                                        </li><!-- /blank -->
-                                        <li class="side-nav-item">
-                                            <a href="#">
-                                                <i class="nav-item-icon icon ion-calendar"></i>
-                                                Schedule
-                                            </a>
-                                        </li><!-- /variation -->
-                                        <li class="side-nav-item">
-                                            <a href="#">
-                                                <i class="nav-item-icon icon ion-settings"></i>
-                                                Settings
-                                            </a>
-                                        </li><!-- /variation -->
-                                    </ul><!-- /layouts child -->
-                                </li><!-- /Class-1 -->
-                            {% endfor %}
+                            <li class="side-nav-item">
+                                <a href="#class-1">
+                                    <i class="nav-item-caret"></i>
+                                    Class #
+                                </a>
+                                <ul id="class-1" class="side-nav-child">
+                                    <li class="side-nav-item-heading">
+                                        <a href="#" class="side-nav-back">
+                                            <i class="nav-item-caret"></i>
+                                            Classs #
+                                        </a>
+                                    </li><!-- /header layouts child -->
+                                    <li class="side-nav-item">
+                                        <a href="#">
+                                            <span class="badge">3</span>
+                                            <i class="nav-item-icon icon ion-android-friends"></i>
+                                            Students
+                                        </a>
+                                    </li><!-- /blank -->
+                                    <li class="side-nav-item">
+                                        <a href="#">
+                                            <i class="nav-item-icon icon ion-calendar"></i>
+                                            Schedule
+                                        </a>
+                                    </li><!-- /variation -->
+                                    <li class="side-nav-item">
+                                        <a href="#">
+                                            <i class="nav-item-icon icon ion-settings"></i>
+                                            Settings
+                                        </a>
+                                    </li><!-- /variation -->
+                                </ul><!-- /layouts child -->
+                            </li><!-- /Class-1 -->
                         </ul><!-- /nav ul-->
                     </nav>
 
@@ -155,5 +153,9 @@
         -->
         <script src="{% static 'stock/app/js/dependencies.js' %}"></script>
         <script src="{% static 'stock/app/js/main.js' %}"></script>
+
+        <!-- Backbone dependencies -->
+        <script src="{% static 'js/lib/backbone-min.js' %}"></script>
+        <script src="{% static 'js/app/models.js' %}"></script>
     </body>
 </html>
