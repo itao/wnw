@@ -1,4 +1,8 @@
 var headerView = new (Backbone.View.extend({
+    initialize: function() {
+        this.render()
+    },
+
     setTitle: function(title){
         this.title = title;
         this.render();
@@ -10,7 +14,7 @@ var headerView = new (Backbone.View.extend({
     },
 
     render: function(){
-        this.$('content-title', this.title);
+        this.$('#content-title').empty().append(this.title);
         this.$('#header-actions').empty().append(this.buttons);
         return this;
     }
@@ -23,6 +27,7 @@ var MainNavView = Backbone.HandlebarsView.extend({
 
     events: {
         'click .side-nav-back': 'back',
+        'click .home': 'home',
         'click .klass .side-nav-open': 'selectKlass',
         'click .overview': 'showKlass',
         'click .students': 'showStudents',
@@ -61,6 +66,9 @@ var MainNavView = Backbone.HandlebarsView.extend({
 
     back: function(){
         this.model.each(function(k){k.set('selected',false)});
+    },
+
+    home: function() {
         router.navigate('', {trigger: true});
     },
 
@@ -107,6 +115,7 @@ var CreateKlassView = Backbone.HandlebarsView.extend({
     },
 
     render: function(){
+        headerView.setTitle('Create a class');
         headerView.setButtons($('<a href="#" class="btn btn-ion btn-success">Save</a>').on('click', this.save));
         Backbone.HandlebarsView.prototype.render.call(this);
 
