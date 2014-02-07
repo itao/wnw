@@ -8,14 +8,24 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
+        # Deleting field 'Klass.title'
+        db.delete_column(u'klasses_klass', 'title')
 
-        # Changing field 'Student.account'
-        db.alter_column(u'students_student', 'account_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['accounts.User'], null=True))
+        # Adding field 'Klass.name'
+        db.add_column(u'klasses_klass', 'name',
+                      self.gf('django.db.models.fields.CharField')(default='', max_length=200),
+                      keep_default=False)
+
 
     def backwards(self, orm):
+        # Adding field 'Klass.title'
+        db.add_column(u'klasses_klass', 'title',
+                      self.gf('django.db.models.fields.CharField')(default='', max_length=200),
+                      keep_default=False)
 
-        # Changing field 'Student.account'
-        db.alter_column(u'students_student', 'account_id', self.gf('django.db.models.fields.related.ForeignKey')(default=None, to=orm['accounts.User']))
+        # Deleting field 'Klass.name'
+        db.delete_column(u'klasses_klass', 'name')
+
 
     models = {
         u'accounts.user': {
@@ -55,27 +65,20 @@ class Migration(SchemaMigration):
         },
         u'klasses.klass': {
             'Meta': {'object_name': 'Klass'},
-            'code': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '40'}),
+            'code': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '40', 'blank': 'True'}),
             'colour': ('django.db.models.fields.CharField', [], {'default': "'#999999'", 'max_length': '7'}),
             'coteachers': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'coclasses'", 'null': 'True', 'symmetrical': 'False', 'to': u"orm['teachers.Teacher']"}),
             'end': ('django.db.models.fields.DateField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
             'start': ('django.db.models.fields.DateField', [], {}),
-            'teacher': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'classes'", 'to': u"orm['teachers.Teacher']"}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '200'})
+            'teacher': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'classes'", 'to': u"orm['teachers.Teacher']"})
         },
         u'schools.school': {
             'Meta': {'object_name': 'School'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'logo': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '200'})
-        },
-        u'students.student': {
-            'Meta': {'object_name': 'Student'},
-            'account': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'to': u"orm['accounts.User']", 'null': 'True', 'blank': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'klasses': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'students'", 'null': 'True', 'symmetrical': 'False', 'to': u"orm['klasses.Klass']"}),
-            'picture': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'})
         },
         u'teachers.teacher': {
             'Meta': {'object_name': 'Teacher'},
@@ -86,4 +89,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['students']
+    complete_apps = ['klasses']

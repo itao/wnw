@@ -17,12 +17,8 @@ def welcome(request):
 def index(request):
     template = 'pages/app/home.html'
 
-    classes = Klass.objects.all()
-
     return render(
         request,
         template,
-        {
-            'classes': classes
-        }
+        {}
     )
