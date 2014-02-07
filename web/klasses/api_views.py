@@ -13,7 +13,7 @@ class KlassViewSet(viewsets.ModelViewSet):
     serializer_class = KlassSerializer
     permission_classes = (permissions.IsAuthenticated,)
 
-    @link(renderer_classes=[renderers.StaticHTMLRenderer])
+    @link(renderer_classes=[renderers.JSONRenderer])
     def students(self, request, pk):
     	klass = Klass.objects.get(pk=pk)
     	students = klass.students.all()
