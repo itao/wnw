@@ -39,7 +39,7 @@ App.StudentRoute = Ember.Route.extend({
     },
 
     serialize: function(student){
-        return {student_id: student.get('id') }:
+        return {student_id: student.get('id') };
     }
 });
 
