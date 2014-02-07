@@ -10,7 +10,7 @@ var router = new (Backbone.Router.extend({
     showHome: function(){
         $('#app-body').empty();
         headerView.setTitle('Home');
-        headerView.setButtons($('<a href="#classes/create" class="btn btn-ion btn-primary">Add class</a>'))
+        headerView.setButtons($('<a href="#classes/create" class="btn btn-ion btn-primary">Create</a>'))
     },
 
     createKlass: function(){
@@ -26,8 +26,8 @@ var router = new (Backbone.Router.extend({
             var klass = allKlasses.get(id);
             klass.students.fetch().done(function() {
                 $('#app-body').empty();
-                headerView.setTitle(klass.name);
-                headerView.setButtons($(''));
+                headerView.setTitle(klass.toJSON().name);
+                headerView.setButtons($('<a href="#classes/' + id + '/update" class="btn btn-ion btn-warning">Edit</a>'));
                 (new KlassView({model: klass})).$el.appendTo('#app-body');
             });
         });
@@ -38,6 +38,8 @@ var router = new (Backbone.Router.extend({
             var klass = allKlasses.get(id);
             klass.students.fetch().done(function(){
                 $('#app-body').empty();
+                headerView.setTitle(klass.toJSON().name);
+                headerView.setButtons($('<a href="#students/create" class="btn btn-ion btn-primary">Enroll</a>'));
                 (new StudentsView({model: klass.students, klass_id: id})).$el.appendTo('#app-body');
             });
         });
@@ -49,6 +51,8 @@ var router = new (Backbone.Router.extend({
             klass.students.fetch().done(function() {
                 var student = klass.students.get(student_id);
                 $('#app-body').empty();
+                headerView.setTitle(klass.toJSON().name);
+                headerView.setButtons('');
                 (new StudentProfileView({model: student})).$el.appendTo('#app-body');
             });
         });
