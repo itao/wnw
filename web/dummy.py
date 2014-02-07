@@ -32,7 +32,7 @@ def init():
         # Create teachers
         t = Teacher(first_name='Sesame', last_name='Teacher', email='teacher@sesame.io')
         t.save()
-        t.set_password = pw
+        t.set_password(pw)
         t.save()
 
         # Create classes
@@ -67,7 +67,7 @@ def init():
             s = students[i]
             s = Student(first_name=s['first_name'], last_name=s['last_name'], email=s['email'])
             s.save()
-            s.set_password = pw
+            s.set_password(pw)
             s.save()
             s.klasses = classes[:i+1]
 
@@ -81,6 +81,6 @@ def init():
             n = Note(klass=k, detail=detail)
             n.save()
             n.students = s[:i+1]
-        print 'All don, goodbye!'
+        print 'All done, goodbye!'
     else:
         print 'Fine, I see how it is.'
