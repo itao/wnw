@@ -12,3 +12,14 @@ var AllKlasses = Backbone.Collection.extend({
     model: Klass,
     url: '/api/klasses'
 });
+
+var Student = Backbone.Model.extend({
+    defaults: {}
+})
+
+var StudentsInKlass = Backbone.Collection.extend({
+    model: Student,
+    url: function() {
+        return this.klass.url() + '/students'
+    }
+})
