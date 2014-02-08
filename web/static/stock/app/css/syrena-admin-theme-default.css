@@ -229,7 +229,7 @@
 
 /* Profile page */
 .pc-details .pc-details-content{
-	background-color: rgba(52, 73, 94, .25);
+	/* background-color: rgba(52, 73, 94, .25); */
 	color: #ffffff;
 }
 .profile-actions{
