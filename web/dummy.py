@@ -21,16 +21,22 @@ def init():
     choice = raw_input().strip()
     if choice == 'y':
 
-        print 'Initializing...'
+        print 'Working...'
 
         # Wipe db
         clean()
 
-        # Common password
+        # Common variable
         pw = 'sesame'
+        # FYI
+        ACCOUNT_TYPES = {
+            1: 'teacher',
+            2: 'student',
+            3: 'parent',
+        }
 
         # Create teachers
-        t = Teacher(first_name='Sesame', last_name='Teacher', email='teacher@sesame.io')
+        t = Teacher(first_name='Sesame', last_name='Teacher', email='teacher@sesame.io', user_type=1)
         t.save()
         t.set_password(pw)
         t.save()
@@ -65,7 +71,7 @@ def init():
         classes = Klass.objects.all()
         for i in range(3):
             s = students[i]
-            s = Student(first_name=s['first_name'], last_name=s['last_name'], email=s['email'])
+            s = Student(first_name=s['first_name'], last_name=s['last_name'], email=s['email'], user_type=2)
             s.save()
             s.set_password(pw)
             s.save()

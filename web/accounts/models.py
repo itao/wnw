@@ -34,6 +34,8 @@ class User(authm.AbstractBaseUser, authm.PermissionsMixin, TimestampedMixin):
     first_name = m.CharField(max_length=1024)
     last_name = m.CharField(max_length=1024)
 
+    user_type = m.IntegerField(default=1)
+
     objects = UserManager()
 
     def get_full_name(self):
@@ -49,3 +51,12 @@ class User(authm.AbstractBaseUser, authm.PermissionsMixin, TimestampedMixin):
     def is_staff(self):
         return self.is_superuser and self.is_active
 
+    @property
+    def type(self):
+        ACCOUNT_TYPES = {
+            1: 'teacher',
+            2: 'student',
+            3: 'parent',
+        }
+
+        return ACCOUNT_TYPES[self.user_type]
