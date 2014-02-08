@@ -1,25 +1,21 @@
-import json
+from rest_framework import viewsets
+from rest_framework import permissions
+from rest_framework import renderers
+from rest_framework.decorators import link
+from rest_framework.response import Response
 
-from django.http import HttpResponse
-from django.shortcuts import render, render_to_response
-from django.template import RequestContext, loader
+from .models import Klass
+from .serializers import KlassSerializer
+from students.serializers import StudentSerializer
 
+class KlassViewSet(viewsets.ModelViewSet):
+    model = Klass
+    serializer_class = KlassSerializer
+    permission_classes = (permissions.IsAuthenticated,)
 
-def add(request):
-    h = loader.get_template('pages/app/klasses/create_header.html')
-    t = loader.get_template('pages/app/klasses/create.html')
-    c = RequestContext(
-        request,
-        {}
-    )
-    header = h.render(c)
-    body = t.render(c)
-
-    return HttpResponse(
-        json.dumps({
-            'header': header,
-            'body': body,
-        }),
-        mimetype="application/json"
-    )
-
+    @link(renderer_classes=[renderers.JSONRenderer])
+    def students(self, request, pk):
+    	klass = Klass.objects.get(pk=pk)
+    	students = klass.students.all()
+    	student_serializer = StudentSerializer(students, many=True)
+    	return Response(student_serializer.data)
