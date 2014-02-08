@@ -4,7 +4,7 @@
  *
  * License:
  * For License Information check out - https://wrapbootstrap.com
- * 
+ *
  * Copyright 2013, Stilearning
  * http://stilearning.com
  */
@@ -25,7 +25,7 @@ $(function(){
 	  restartOnRequestAfter: false
 	}
 	window.Pace.start();
-	
+
 
 
 
@@ -42,7 +42,7 @@ $(function(){
         +'</ul>'
     	+'</div>';
 	//$('body').append(theme_tags);
-	
+
 	$('#theme-switcher').on('click', function(e){
 		e.preventDefault();
 
@@ -67,7 +67,7 @@ $(function(){
 	*/
 
 	/**
-	 * Bootstrap manual 
+	 * Bootstrap manual
 	 */
 	$('[data-toggle="tooltip"]').tooltip();		// tooltips
 	$('[data-toggle="popover"]').popover();		// popovers
@@ -118,12 +118,10 @@ $(function(){
 		e.preventDefault();
 	});
 
-
-
 	/**
 	 * Side left Menu rule
 	 */
-	$('.side-nav-child').prev().on('click', function(e){
+	$('.side-nav').on('click', '.side-nav-open', function(e){
 		e.preventDefault();
 
 		var $this = $(this),
@@ -131,7 +129,7 @@ $(function(){
 
 		$(target).addClass('open');
 	})
-	$('.side-nav-back').on('click', function(e){
+	$('.side-nav').on('click', '.side-nav-back', function(e){
 		e.preventDefault();
 		var $this = $(this),
 			target = $this.parent().parent();
@@ -140,7 +138,7 @@ $(function(){
 	})
 
 
-	
+
 	// visibility elements on different viewports
 	var initVisibilityElms = function(){
 		var viewport = $.viewportW();	// detect viewport with verge
@@ -195,7 +193,7 @@ $(function(){
 	// toggle content
 	$('#toggle-content').on('click', function(e){
 		e.preventDefault();
-		
+
 		var content = $('#content');
 
 		// $(this).toggleClass('active');
@@ -203,12 +201,12 @@ $(function(){
 		content.toggleClass('content-lg');
 
 		// kiye kerjake!
-		$('#toggle-search').toggleClass('hide'); // handle visibility search button 
+		$('#toggle-search').toggleClass('hide'); // handle visibility search button
 	});
 
 
 
-	
+
 	// gesture event on #content for toggle content
 	// if your device doesn't support touch event you can manually add data-swipe="true" on #content
 	// var is_touch_device = 'ontouchstart' in document.documentElement,
@@ -227,9 +225,9 @@ $(function(){
 	  		}
 
 	  		// handle padding left max/min value
-	  		if(pl >= 300) 
+	  		if(pl >= 300)
 	  			pl = 300;
-  			else if(pl <= 0) 
+  			else if(pl <= 0)
   				pl = 0;
 
 
@@ -387,7 +385,7 @@ $(function(){
             $('[name="chat-msg"]').val('');
         }
     })
-	
+
 
 
 
@@ -448,7 +446,7 @@ $(function(){
 			parents.parent().removeClass('active');
 			$(this).parent().addClass('active');
 		}
-		
+
 
 		if (target.length !== 0) {
 			if (!current) {
@@ -469,7 +467,7 @@ $(function(){
 
 
 	/**
-	 * Magic Layout - generate with isotope 
+	 * Magic Layout - generate with isotope
 	 * it's a awesome responsive layout for your awesome projects
 	 * bootstrap is available grid layout, but static
 	 * magic layout give you dynamically responsive layout for differents viewport
@@ -512,7 +510,7 @@ $(function(){
 		$container.isotope({
 		  itemSelector : '.magic-element',
 		  // disable normal resizing
-		  resizable: false, 
+		  resizable: false,
 		  // set columnWidth to a percentage of container width
 		  masonry: { columnWidth: masonry }
 		});
@@ -526,7 +524,7 @@ $(function(){
 			  masonry: { columnWidth: masonry }
 			});
 		}, 500);
-		
+
 		// update fixed with transition layout
 		$('.transition-layout').bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
 			masonry = $container.width() / data_col;
@@ -550,7 +548,7 @@ $(function(){
 		// update columnWidth on window resize
 		$(window).on('resize', function(){
 			var viewport = $.viewportW();	// detect viewport with verge
-			
+
 			// if toggle aside in mode medium to small viewport
 			if (viewport <= 1280) {
 				if (data_col > 2) {
@@ -602,7 +600,7 @@ $(function(){
 		// update columnWidth on toggle aside
 		$('#toggle-aside').on('click', function(e){
 			$container.isotope('reLayout');
-			
+
 		}) // end toggle aside
 
 		// update columnWidth on toggle aside
@@ -623,9 +621,9 @@ $(function(){
 		  	});
 		})
 	}) // end each magic-layout
-	
 
-	
+
+
 	// panel controls
 	// callback panel on finish actions
 	var callback_panel = function(){
@@ -719,7 +717,7 @@ $(function(){
 
 });
 
-	
+
 	/*! Loader automatically plugin
 	 *  http://github.hubspot.com/pace/ */
 	/*! pace 0.4.16 */
@@ -734,20 +732,20 @@ $(function(){
 	(function ($) {
 	  var inviewObjects = {}, viewportSize, viewportOffset,
 	      d = document, w = window, documentElement = d.documentElement, expando = $.expando;
-	
+
 	  $.event.special.inview = {
 	    add: function(data) {
 	      inviewObjects[data.guid + "-" + this[expando]] = { data: data, $element: $(this) };
 	    },
-	
+
 	    remove: function(data) {
 	      try { delete inviewObjects[data.guid + "-" + this[expando]]; } catch(e) {}
 	    }
 	  };
-	
+
 	  function getViewportSize() {
 	    var mode, domObject, size = { height: w.innerHeight, width: w.innerWidth };
-	
+
 	    // if this is correct then return it. iPad has compat Mode, so will
 	    // go into check clientHeight/clientWidth (which has the wrong value).
 	    if (!size.height) {
@@ -762,37 +760,37 @@ $(function(){
 	        };
 	      }
 	    }
-	
+
 	    return size;
 	  }
-	
+
 	  function getViewportOffset() {
 	    return {
 	      top:  w.pageYOffset || documentElement.scrollTop   || d.body.scrollTop,
 	      left: w.pageXOffset || documentElement.scrollLeft  || d.body.scrollLeft
 	    };
 	  }
-	
+
 	  function checkInView() {
 	    var $elements = $(), elementsLength, i = 0;
-	
+
 	    $.each(inviewObjects, function(i, inviewObject) {
 	      var selector  = inviewObject.data.selector,
 	          $element  = inviewObject.$element;
 	      $elements = $elements.add(selector ? $element.find(selector) : $element);
 	    });
-	
+
 	    elementsLength = $elements.length;
 	    if (elementsLength) {
 	      viewportSize   = viewportSize   || getViewportSize();
 	      viewportOffset = viewportOffset || getViewportOffset();
-	
+
 	      for (; i<elementsLength; i++) {
 	        // Ignore elements that are not in the DOM tree
 	        if (!$.contains(documentElement, $elements[i])) {
 	          continue;
 	        }
-	
+
 	        var $element      = $($elements[i]),
 	            elementSize   = { height: $element.height(), width: $element.width() },
 	            elementOffset = $element.offset(),
@@ -800,7 +798,7 @@ $(function(){
 	            visiblePartX,
 	            visiblePartY,
 	            visiblePartsMerged;
-	        
+
 	        // Don't ask me why because I haven't figured out yet:
 	        // viewportOffset and viewportSize are sometimes suddenly null in Firefox 5.
 	        // Even though it sounds weird:
@@ -809,7 +807,7 @@ $(function(){
 	        if (!viewportOffset || !viewportSize) {
 	          return;
 	        }
-	        
+
 	        if (elementOffset.top + elementSize.height > viewportOffset.top &&
 	            elementOffset.top < viewportOffset.top + viewportSize.height &&
 	            elementOffset.left + elementSize.width > viewportOffset.left &&
@@ -830,18 +828,18 @@ $(function(){
 	      }
 	    }
 	  }
-	
+
 	  $(w).bind("scroll resize", function() {
 	    viewportSize = viewportOffset = null;
 	  });
-	  
+
 	  // IE < 9 scrolls to focused elements without firing the "scroll" event
 	  if (!documentElement.addEventListener && documentElement.attachEvent) {
 	    documentElement.attachEvent("onfocusin", function() {
 	      viewportOffset = null;
 	    });
 	  }
-	
+
 	  // Use setInterval in order to also make sure this captures elements within
 	  // "overflow:scroll" elements or elements that appeared in the dom tree due to
 	  // dom manipulation and reflow
@@ -850,4 +848,4 @@ $(function(){
 	  // By the way, iOS (iPad, iPhone, ...) seems to not execute, or at least delays
 	  // intervals while the user scrolls. Therefore the inview event might fire a bit late there
 	  setInterval(checkInView, 250);
-	})(jQuery);	
+	})(jQuery);

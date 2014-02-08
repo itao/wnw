@@ -6,7 +6,7 @@
  * default theme usage colors:
  *  - body: none;
  *  - side left: wetasphalt - #34495e;
- *  - side header: belizehole - #2980b9;
+ *  - side header: belizehole - #0d3556;
  *  - content: cloud - #ecf0f1;
  *  - content header: peterriver - #3498db;
  *
@@ -58,11 +58,12 @@
  * We use fixe mode layout width every section inside wrapper
  */
 .side-left{
-	background-color: #34495e;		/* wetasphalt */
+	/* background-color: #34495e;		/* wetasphalt */
+	background-color: #333333;
 	color: #ecf0f1;					/* cloud */
 }
 	.side-header{
-		background-color: #2980b9;	/* belizehole */
+		background-color: #0d3556;	/* belizehole */
 		color: #ecf0f1;				/* cloud */
 	}
 		.side-header > .brand a{
@@ -91,7 +92,7 @@
 			background-color: rgba(52, 73, 94, .9);			/* wetasphalt */
 		}
 		.side-body > .side-wrapper.open.active{
-			background-color: #2980b9;						/* belizehole */
+			background-color: #0d3556;						/* belizehole */
 		}
 			.side-wrapper .side-wrapper-result{
 				color: #34495e;
@@ -107,15 +108,18 @@
 			}
 			.side-nav-item > a:hover,
 			.side-nav-item > a:focus {
-			  	background-color: rgba(44, 62, 80, .4);			/* midnightblue */
+			  	/* background-color: rgba(44, 62, 80, .4);			/* midnightblue */
+			  	background-color: #444444;
 			}
 
 			.side-nav-item.active > a,
 			.side-nav-item.active > a:hover,
 			.side-nav-item.active > a:focus {
 			  	color: #ecf0f1;									/* cloud */
-			  	background-color: rgba(44, 62, 80, .75);		/* midnightblue */
-			  	border-color: rgba(44, 62, 80,  .75);			/* midnightblue */
+			  	/* background-color: rgba(44, 62, 80, .75);		/* midnightblue */
+			  	/* border-color: rgba(44, 62, 80,  .75);			/* midnightblue */
+			  	background-color: #444444;
+			  	border-color: #444444;
 			}
 
 			.nav-item-caret{
@@ -132,13 +136,16 @@
 			}
 
 				.side-nav-child{
-					background-color: #34495e;	/* wetasphalt => sincronize to side left background (recomended set to same bg color with .side-left) */
+					/* background-color: #34495e;	/* wetasphalt => sincronize to side left background (recomended set to same bg color with .side-left) */
+					background-color: #333333;
 				}
 
 				.side-nav .side-nav-item-heading > a{
 					color: #ecf0f1;								/* cloud */
-				  	background-color: rgba(44, 62, 80, .75);	/* midnightblue */
-				  	border-color: rgba(44, 62, 80, .75);		/* midnightblue */
+				  	/* background-color: rgba(44, 62, 80, .75);	/* midnightblue */
+				  	/* border-color: rgba(44, 62, 80, .75);		/* midnightblue */
+				  	background-color: #555555;
+				  	border-color: #555555;
 				}
 
 
@@ -222,7 +229,7 @@
 
 /* Profile page */
 .pc-details .pc-details-content{
-	background-color: rgba(52, 73, 94, .25);
+	/* background-color: rgba(52, 73, 94, .25); */
 	color: #ffffff;
 }
 .profile-actions{

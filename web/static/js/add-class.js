@@ -9,11 +9,6 @@ function addClass(data) {
     })
 }
 
-function convertDateFormat(dateString) {
-    date = new Date(dateString);
-    newString = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
-    return newString;
-}
 function save() {
     form = $('#add-class-form');
     if (form.valid()) {

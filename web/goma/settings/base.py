@@ -20,11 +20,11 @@ INSTALLED_APPS = (
     'south',
     'rest_framework',
 
+    'schools',
     'accounts',
     'teachers',
-    'students',
     'klasses',
-    'schools',
+    'students',
     'parents',
 
     'notes',

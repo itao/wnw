@@ -1195,6 +1195,7 @@ body{
 
 /* Profile page */
 .profile-cover{
+	background-color: #000000;
 	position: relative;
 	margin: -10px -10px 0;
 	height: 400px;
@@ -1220,17 +1221,21 @@ body{
 }
 .profile-cover .pc-img > img{
 	position: absolute;
-	left: 300px;
+	/* left: 300px; */
 	min-width: 100%;
 	min-height: 400px;
 	height: auto;
 }
+.profile-cover-img {
+	opacity: 0.7;
+}
 .profile-cover .pc-details{
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 15%;
+	left: 30%;
 	bottom: 0;
-	width: 300px;
+	width: 40%;
+	height: 70%;
 	text-align: center;
 	overflow: hidden;
 }
