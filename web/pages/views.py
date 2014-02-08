@@ -1,22 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, Http404
-from django.core.urlresolvers import reverse
+from django.http import Http404
 from django.contrib.auth.decorators import login_required
 
-from klasses.models import Klass
-
-def welcome(request):
-    template = 'pages/landing/welcome.html'
-
-    return render(
-        request,
-        template,
-        {
-        }
-    )
-
 @login_required
-def index(request):
+def app(request):
     if request.user.type == 'teacher':
         template = 'teach.html'
     elif request.user.type == 'student':

@@ -85,6 +85,9 @@ PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
 )
 
+LOGIN_URL = '/portal'
+LOGIN_REDIRECT_URL = '/'
+
 REST_FRAMEWORK = {
     'DEFAULT_MODEL_SERIALIZER_CLASS':
         'rest_framework.serializers.HyperlinkedModelSerializer',
