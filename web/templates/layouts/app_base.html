@@ -165,6 +165,42 @@
                 </div>
             {{/each}}
         </script>
+        <script type="text/x-handlebars-template" id="add-students-template">
+            <form id="add-class-form" class="form-horizontal" role="form">
+                <h2 class="box-heading">
+                    Create new students
+                </h2>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="inputTextarea">Student info</label>
+                    <div class="col-sm-10">
+                        <textarea
+                            id="new-student-list"
+                            rows="5"
+                            class="form-control form-ion"
+                            placeholder="first name, last name, email (optional), student ID (optional)"
+                        ></textarea>
+                        <span class="help-block">Enter a comma-separated list of first names, last name, email and student ID.</span>
+                    </div>
+                </div><!-- /form-group -->
+                <h2 class="box-heading">
+                    Enroll existing students
+                </h2>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="inputTextarea">Class List</label>
+                    <div class="col-sm-10">
+                         <select class="multiselect" multiple>
+                            {% for class in classes %}
+                                <optgroup label="{{ class.name }}">
+                                    {% for students in class.student.all %}
+                                        <option value="{{ student.id }}">{{ student.name }}</option>
+                                    {% endfor %}
+                                </optgroup>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div><!-- /form-group -->
+            </form><!-- /form -->
+        </script>
         <script type="text/x-handlebars-template" id="student-profile-template">
             <div class="profile-cover">
                 <div class="pc-img">
@@ -298,6 +334,7 @@
         <script src="{% static 'stock/app/js/main.js' %}"></script>
         <script src="{% static 'stock/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
         <script src="{% static 'stock/jquery-simplecolorpicker/jquery.simplecolorpicker.js' %}"></script>
+        <script src="{% static 'stock/multiselect/js/jquery.multi-select.js' %}"></script>
 
         <!-- Backbone dependencies -->
         <script src="{% static 'js/lib/backbone-min.js' %}"></script>

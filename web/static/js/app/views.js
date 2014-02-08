@@ -160,6 +160,34 @@ var KlassView = Backbone.HandlebarsView.extend({
     template: $('#klass-overview-template').html()
 });
 
+
+
+
+var AddStudentsView = Backbone.HandlebarsView.extend({
+    tagName: 'div',
+    className: 'box width-full',
+
+    initialize: function(){
+        _.bindAll(this,'save');
+        this.render();
+    },
+
+    template: $('#add-students-template').html(),
+
+    save: function(){
+    },
+
+    render: function(){
+        headerView.setTitle('Add students');
+        headerView.setButtons($('<a href="#" class="btn btn-ion btn-success">Save</a>').on('click', this.save));
+        Backbone.HandlebarsView.prototype.render.call(this);
+
+        this.$(".multiselect").multiSelect({
+            cssClass: 'form-ion'
+        });
+    }
+});
+
 var StudentsView = Backbone.HandlebarsView.extend({
 
     events: {

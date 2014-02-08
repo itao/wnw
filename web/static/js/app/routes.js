@@ -4,6 +4,7 @@ var router = new (Backbone.Router.extend({
         'classes/create': 'createKlass',
         'classes/:id': 'showKlass',
         'classes/:class_id/students': 'showStudents',
+        'classes/:class_id/students/add': 'addStudents',
         'classes/:class_id/students/:id': 'showStudentProfile'
     },
 
@@ -15,7 +16,6 @@ var router = new (Backbone.Router.extend({
 
     createKlass: function(){
         $('#app-body').empty();
-        headerView.setTitle('Create Class');
         (
             new CreateKlassView({model: new Klass()})
         ).$el.appendTo('#app-body');
@@ -33,13 +33,20 @@ var router = new (Backbone.Router.extend({
         });
     },
 
+    addStudents: function(){
+        $('#app-body').empty();
+        (
+            new AddStudentsView({model: new Student()})
+        ).$el.appendTo('#app-body');
+    },
+
     showStudents: function(id){
         allKlasses.fetch().done(function(){
             var klass = allKlasses.get(id);
             klass.students.fetch().done(function(){
                 $('#app-body').empty();
                 headerView.setTitle(klass.toJSON().name);
-                headerView.setButtons($('<a href="#students/create" class="btn btn-ion btn-primary">Enroll</a>'));
+                headerView.setButtons($('<a href="#classes/' + id + '/students/add" class="btn btn-ion btn-primary">Add</a>'));
                 (new StudentsView({model: klass.students, klass_id: id})).$el.appendTo('#app-body');
             });
         });
