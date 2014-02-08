@@ -49,3 +49,11 @@ class User(authm.AbstractBaseUser, authm.PermissionsMixin, TimestampedMixin):
     def is_staff(self):
         return self.is_superuser and self.is_active
 
+class Oauth2Token(TimestampedMixin):
+    User = m.ForeignKey(User)
+    access_token = m.CharField(max_length=1024)
+    id_token = m.CharField(max_length=1024)
+    expiry_time = m.DateTimeField()
+    refresh_token = m.DateTimeField(max_length=1024)
+
+    objects = m.Manager()
