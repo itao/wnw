@@ -1,0 +1,17 @@
+{% extends 'layouts/landing_base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+Hello, OAuth token! <br>
+
+user id: {{user}} <br>
+created new user: {{created_user}} <br>
+
+token id: {{token}} <br>
+access token: {{access_token}} <br>
+refresh token: {{refresh_token}} <br>
+expiry time: {{expiry_time}} <br>
+{% endblock %}
+
+{% block body %}
+{% endblock %}

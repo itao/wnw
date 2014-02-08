@@ -93,3 +93,8 @@ REST_FRAMEWORK = {
     ]
 }
 
+GOOGLE_CLIENT_ID        = "516038755489.apps.googleusercontent.com" # Need to fill this in later
+GOOGLE_CLIENT_SECRET    = "gw7C0VRbcqKGwc8U7FrVrncQ" # Fill with real value later
+GOOGLE_REDIRECT_URI     = "http://localhost:8888/accounts/google/login/callback/" # Fill in later
+GOOGLE_OAUTH_SCOPE      = "email"
+GOOGLE_TOKEN_URL        = "https://accounts.google.com/o/oauth2/token"
