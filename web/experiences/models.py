@@ -7,8 +7,8 @@ class Experience(TimestampedMixin):
     name = m.TextField()
     description = m.TextField(null=True, blank=True)
     picture = m.ImageField(null=True, blank=True, upload_to='experiences/pictures')
-    start = m.DateTimeField()
-    end = m.DateTimeField()
+    start = m.DateField()
+    end = m.DateField()
     location = m.TextField(null=True, blank=True)
 
     attending = m.ManyToManyField(User, related_name='experiences')
