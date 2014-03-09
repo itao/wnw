@@ -1,4 +1,4 @@
-# Wander & wonder (code name Goma, production name TBD)
+# Wandering & wondering (code name Goma, production name TBD)
 
 Have amazing experiences.
 

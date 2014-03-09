@@ -76,7 +76,7 @@ PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
 )
 
-LOGIN_URL = '/portal'
+LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
 
 REST_FRAMEWORK = {

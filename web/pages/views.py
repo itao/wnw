@@ -1,16 +1,8 @@
-from django.shortcuts import render
-from django.http import Http404
 from django.contrib.auth.decorators import login_required
+from django.template import RequestContext
+from django.shortcuts import render_to_response
 
 @login_required
 def app(request):
-    if request.user.type == 'teacher':
-        template = 'teach.html'
-    elif request.user.type == 'student':
-        template = 'learn.html'
-    elif request.user.type == 'parent':
-        tempalte = 'observe.html'
-    else:
-        raise Http404
-
-    return render(request, template, {} )
+    context = RequestContext(request)
+    return render_to_response('app.html', context)
