@@ -5,21 +5,27 @@ from django.utils.translation import ugettext_lazy as _
 from goma.model_mixins import TimestampedMixin
 
 class UserManager(authm.BaseUserManager):
-    def create_user(self, email, password=None):
+    def create_user(self, email, first_name, last_name, password=None):
         u = self.model(
             email=self.normalize_email(email),
-            password=password,
+            first_name=first_name,
+            last_name=last_name,
             is_superuser=False,
             is_staff=False)
         u.save()
+        u.set_password(password)
+        u.save()
         return u
 
-    def create_superuser(self, email, password):
+    def create_superuser(self, email, first_name, last_name, password):
         u = self.model(
             email=self.normalize_email(email),
-            password=password,
+            first_name=first_name,
+            last_name=last_name,
             is_superuser=True,
             is_staff=True)
+        u.save()
+        u.set_password(password)
         u.save()
         return u
 
@@ -33,8 +39,6 @@ class User(authm.AbstractBaseUser, authm.PermissionsMixin, TimestampedMixin):
             'active. Unselect this instead of deleting accounts.'))
     first_name = m.CharField(max_length=1024)
     last_name = m.CharField(max_length=1024)
-
-    user_type = m.IntegerField(default=1)
 
     objects = UserManager()
 
@@ -50,13 +54,3 @@ class User(authm.AbstractBaseUser, authm.PermissionsMixin, TimestampedMixin):
     @property
     def is_staff(self):
         return self.is_superuser and self.is_active
-
-    @property
-    def type(self):
-        ACCOUNT_TYPES = {
-            1: 'teacher',
-            2: 'student',
-            3: 'parent',
-        }
-
-        return ACCOUNT_TYPES[self.user_type]
