@@ -1,6 +1,6 @@
-# Goma
+# Wander & wonder (code name Goma, production name TBD)
 
-Like sesame, but more hip and artsy (Japanese names and the like).
+Have amazing experiences.
 
 ### Prerequisites
 1. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
