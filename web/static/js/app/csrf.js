@@ -23,6 +23,3 @@ $.ajaxSetup({
         }
     }
 });
-
-allKlasses.fetch();
-Backbone.history.start();
